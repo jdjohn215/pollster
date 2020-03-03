@@ -27,6 +27,10 @@ crosstab.3way <- function(x, y, z, df,
                           weight = zwave_weight, remove = c(""),
                           n = TRUE, pct_type = "row", format = "wide"){
 
+  # make sure the arguments are all correct
+  stopifnot(pct_type %in% c("row", "cell"),
+            format %in% c("wide", "long"))
+
   # row percents
   if(pct_type == "row"){
     d.output <- df %>%
