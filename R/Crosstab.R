@@ -1,6 +1,6 @@
 #' weighted crosstabs
 #'
-#' \code{make.crosstab} returns a tibble containing a weighted crosstab of two variables
+#' \code{crosstab} returns a tibble containing a weighted crosstab of two variables
 #'
 #'  Options  include row, column, or cell percentages. The tibble can be in long or wide format.
 #'
@@ -8,7 +8,7 @@
 #' @param y The dependent variable
 #' @param df The data source
 #' @param weight The weighting variable, defaults to zwave_weight
-#' #' @param remove An optional character vector of values to remove from final table (e.g. "refused").
+#' @param remove An optional character vector of values to remove from final table (e.g. "refused").
 #' This will not affect any calculations made. The vector is not case-sensitive.
 #' @param n logical, if TRUE numeric totals are included. They are included in a separate row for
 #' long formatted tables. For wide tables, they are included in a separate column for row and cell

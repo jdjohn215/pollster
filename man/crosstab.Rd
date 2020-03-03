@@ -22,8 +22,9 @@ crosstab(
 
 \item{df}{The data source}
 
-\item{weight}{The weighting variable, defaults to zwave_weight
-#' @param remove An optional character vector of values to remove from final table (e.g. "refused").
+\item{weight}{The weighting variable, defaults to zwave_weight}
+
+\item{remove}{An optional character vector of values to remove from final table (e.g. "refused").
 This will not affect any calculations made. The vector is not case-sensitive.}
 
 \item{n}{logical, if TRUE numeric totals are included. They are included in a separate row for
@@ -38,7 +39,7 @@ percentages, but in a separate row for column percentages.}
 A dataframe.
 }
 \description{
-\code{make.crosstab} returns a tibble containing a weighted crosstab of two variables
+\code{crosstab} returns a tibble containing a weighted crosstab of two variables
 }
 \details{
 Options  include row, column, or cell percentages. The tibble can be in long or wide format.
