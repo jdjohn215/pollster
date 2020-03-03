@@ -24,6 +24,11 @@
 #' @import labelled
 
 crosstab <- function(x, y, df, weight, remove = "", n = TRUE, pct_type = "row", format = "wide"){
+
+  # make sure the arguments are all correct
+  stopifnot(pct_type %in% c("row", "cell", "column", "col"),
+            format %in% c("wide", "long"))
+
   if(str_to_lower(pct_type) == "row"){
     d.output <- df %>%
       # Remove missing cases
