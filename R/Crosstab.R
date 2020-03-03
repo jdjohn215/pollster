@@ -16,7 +16,7 @@
 #' @param pct_type Controls the kind of percentage values returned. One of "row," "cell," or "column."
 #' @param format one of "long" or "wide"
 #'
-#' @return A dataframe.
+#' @return a tibble
 #' @export
 #' @import dplyr
 #' @import stringr

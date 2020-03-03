@@ -36,7 +36,7 @@ percentages, but in a separate row for column percentages.}
 \item{format}{one of "long" or "wide"}
 }
 \value{
-A dataframe.
+a tibble
 }
 \description{
 \code{crosstab} returns a tibble containing a weighted crosstab of two variables
