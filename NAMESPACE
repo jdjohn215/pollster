@@ -2,6 +2,8 @@
 
 export(crosstab)
 export(crosstab.3way)
+export(deff_calc)
+export(moedeff_calc)
 export(topline)
 import(dplyr)
 import(labelled)
