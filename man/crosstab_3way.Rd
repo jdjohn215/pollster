@@ -25,7 +25,7 @@ crosstab_3way(
 
 \item{df}{The data source}
 
-\item{weight}{The weighting variable, defaults to zwave_weight}
+\item{weight}{The weighting variable}
 
 \item{remove}{An optional character vector of values to remove from final table (e.g. "refused").
 This will not affect any calculations made. The vector is not case-sensitive.}
@@ -40,9 +40,9 @@ This will not affect any calculations made. The vector is not case-sensitive.}
 a tibble
 }
 \description{
-\code{crosstab_3way} returns a tibble containing a weighted crosstab of two variables
+\code{crosstab_3way} returns a tibble containing a weighted crosstab of two variables by a third variable
 }
 \details{
-Options  include row, column, or cell percentages. The tibble can be in long or wide format.
+Options  include row or cell percentages. The tibble can be in long or wide format.
  These tables are ideal for use with small multiples created with ggplot2::facet_wrap.
 }
