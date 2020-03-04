@@ -10,7 +10,7 @@ moe_topline(
   weight,
   remove = c(""),
   n = TRUE,
-  pct,
+  pct = TRUE,
   valid_pct = TRUE,
   cum_pct = TRUE
 )
