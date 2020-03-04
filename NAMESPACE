@@ -3,6 +3,7 @@
 export(crosstab)
 export(crosstab.3way)
 export(deff_calc)
+export(moe_crosstab)
 export(moe_topline)
 export(moedeff_calc)
 export(topline)
