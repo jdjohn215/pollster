@@ -1,6 +1,6 @@
 #' weighted 3-way crosstabs
 #'
-#' \code{crosstab.3way} returns a tibble containing a weighted crosstab of two variables
+#' \code{crosstab_3way} returns a tibble containing a weighted crosstab of two variables
 #'
 #'  Options  include row, column, or cell percentages. The tibble can be in long or wide format.
 #'  These tables are ideal for use with small multiples created with ggplot2::facet_wrap.
@@ -23,7 +23,7 @@
 #' @import tidyr
 #' @import labelled
 
-crosstab.3way <- function(x, y, z, df,
+crosstab_3way <- function(x, y, z, df,
                           weight = zwave_weight, remove = c(""),
                           n = TRUE, pct_type = "row", format = "wide"){
 
