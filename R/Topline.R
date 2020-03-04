@@ -46,7 +46,7 @@ topline <- function(variable, df, weight, remove = c(""), n = TRUE,
     # Remove values included in "remove" string
     filter(! str_to_upper(Response) %in% str_to_upper(remove))
 
-  # remove valid and cumulative percent columns as requested
+  # remove columns as requested
   if(valid_pct == FALSE){
     d.output <- select(d.output, -`Valid Percent`)
   }
