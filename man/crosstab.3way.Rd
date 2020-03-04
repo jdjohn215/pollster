@@ -21,7 +21,7 @@ crosstab.3way(
 
 \item{y}{The dependent variable}
 
-\item{z}{The grouping variable}
+\item{z}{The second control variable}
 
 \item{df}{The data source}
 

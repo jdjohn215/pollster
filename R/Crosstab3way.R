@@ -7,7 +7,7 @@
 #'
 #' @param x The independent variable
 #' @param y The dependent variable
-#' @param z The grouping variable
+#' @param z The second control variable
 #' @param df The data source
 #' @param weight The weighting variable, defaults to zwave_weight
 #' @param remove An optional character vector of values to remove from final table (e.g. "refused").
