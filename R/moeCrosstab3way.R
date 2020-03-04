@@ -24,7 +24,7 @@
 #' @import labelled
 
 moe_crosstab_3way <- function(x, y, z, df,
-                              weight = zwave_weight, remove = c(""),
+                              weight, remove = c(""),
                               n = TRUE, pct_type = "row", format = "long"){
   # make sure the arguments are all correct
   stopifnot(pct_type %in% c("row", "cell"),

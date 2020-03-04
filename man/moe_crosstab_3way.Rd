@@ -9,7 +9,7 @@ moe_crosstab_3way(
   y,
   z,
   df,
-  weight = zwave_weight,
+  weight,
   remove = c(""),
   n = TRUE,
   pct_type = "row",
