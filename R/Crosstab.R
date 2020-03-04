@@ -10,9 +10,8 @@
 #' @param weight The weighting variable, defaults to zwave_weight
 #' @param remove An optional character vector of values to remove from final table (e.g. "refused").
 #' This will not affect any calculations made. The vector is not case-sensitive.
-#' @param n logical, if TRUE numeric totals are included. They are included in a separate row for
-#' long formatted tables. For wide tables, they are included in a separate column for row and cell
-#' percentages, but in a separate row for column percentages.
+#' @param n logical, if TRUE numeric totals are included. They are included in a separate column for row and cell
+#' percentages, but in a separate row for wide format column percentages.
 #' @param pct_type Controls the kind of percentage values returned. One of "row," "cell," or "column."
 #' @param format one of "long" or "wide"
 #'
