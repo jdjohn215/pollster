@@ -102,5 +102,7 @@ moe_wave_crosstab <- function(x, y, df, weight, remove = c(""), n = TRUE,
     output <- select(output, -n)
   }
 
-  output
+  output %>%
+    as_tibble() %>%
+    mutate({{x}} := guess_date({{x}}))
 }
