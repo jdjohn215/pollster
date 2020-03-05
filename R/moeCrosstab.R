@@ -94,11 +94,11 @@ moe_crosstab <- function(x, y, df, weight, remove = c(""),
   is.it.a.date <- is_date(df %>% pull({{x}}))
 
   if(is.it.a.date == TRUE){
-    d.output %>%
+    output %>%
       as_tibble() %>%
       mutate({{x}} := lubridate::as_date({{x}}))
   } else{
-    d.output %>%
+    output %>%
       as_tibble()
   }
 }
