@@ -40,20 +40,12 @@ moedeff_calc <- function(pct, deff, n){
 
 
 is_date <- function(mydate) {
-  result <- tryCatch(!is.na(as.Date(mydate, "",tryFormats = c("%Y-%m-%d", "%Y/%m/%d","%d-%m-%Y","%m-%d-%Y"))),
+  result <- tryCatch(!is.na(as.Date({{mydate}}, "",tryFormats = c("%Y-%m-%d", "%Y/%m/%d","%d-%m-%Y","%m-%d-%Y"))),
                      error = function(err) {FALSE})
 
   if(unique(result) == TRUE){
     TRUE
   } else {
     FALSE
-  }
-}
-
-guess_date <- function(variable){
-  if(is_date({{variable}}) == TRUE){
-    lubridate::as_date({{variable}})
-  } else {
-    {{variable}}
   }
 }
