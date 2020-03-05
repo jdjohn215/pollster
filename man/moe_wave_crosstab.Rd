@@ -2,7 +2,7 @@
 % Please edit documentation in R/moeWaveCrosstab.R
 \name{moe_wave_crosstab}
 \alias{moe_wave_crosstab}
-\title{weighted crosstabs with margin of error, where the x-variable is different survey waves}
+\title{weighted crosstabs with margin of error, where the x-variable identifies different survey waves}
 \usage{
 moe_wave_crosstab(x, y, df, weight, remove = c(""), n = TRUE,
   pct_type = "row", format = "long")

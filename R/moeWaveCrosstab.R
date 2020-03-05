@@ -1,4 +1,4 @@
-#' weighted crosstabs with margin of error, where the x-variable is different survey waves
+#' weighted crosstabs with margin of error, where the x-variable identifies different survey waves
 #'
 #' \code{moe_wave_crosstab} returns a tibble containing a weighted crosstab of two variables
 #'  with margin of error. Use this function when the x-variable indicates different survey
