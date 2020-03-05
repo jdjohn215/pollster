@@ -97,5 +97,7 @@ crosstab_3way <- function(x, y, z, df,
     d.output <- select(d.output, -n)
   }
 
-  d.output %>% as_tibble()
+  d.output %>%
+    as_tibble() %>%
+    mutate({{z}} := guess_date({{z}}))
 }
