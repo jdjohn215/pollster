@@ -16,3 +16,12 @@ There are also two special functions which calculate the design effect for each 
 
 * `moe_wave_crosstab()`
 * `moe_wave_crosstab_3way()`
+
+## Installation
+
+Install it this way.
+
+```
+devtools::install_github("jdjohn215/pollster")
+library(pollster)
+```
