@@ -105,7 +105,15 @@ moe_wave_crosstab_3way <- function(x, y, z, df,
     output <- select(output, -n)
   }
 
-  output %>%
-    as_tibble() %>%
-    mutate({{z}} := guess_date({{z}}))
+  # test if date
+  is.it.a.date <- is_date(df %>% pull({{z}}))
+
+  if(is.it.a.date == TRUE){
+    d.output %>%
+      as_tibble() %>%
+      mutate({{z}} := lubridate::as_date({{z}}))
+  } else{
+    d.output %>%
+      as_tibble()
+  }
 }
