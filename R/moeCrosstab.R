@@ -91,5 +91,7 @@ moe_crosstab <- function(x, y, df, weight, remove = c(""),
     output <- select(output, -n)
   }
 
-  output
+  output %>%
+    as_tibble() %>%
+    mutate({{x}} := guess_date({{x}}))
 }
