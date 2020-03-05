@@ -49,3 +49,11 @@ is_date <- function(mydate) {
     FALSE
   }
 }
+
+guess_date <- function(variable){
+  if(is_date({{variable}}) == TRUE){
+    lubridate::as_date({{variable}})
+  } else {
+    {{variable}}
+  }
+}
