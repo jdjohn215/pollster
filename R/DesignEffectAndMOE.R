@@ -37,3 +37,9 @@ deff_calc <- function(w){
 moedeff_calc <- function(pct, deff, n){
   sqrt(deff)*1.96*sqrt((pct*(1-pct))/(n-1))*100
 }
+
+
+is_date <- function(mydate) {
+  tryCatch(!is.na(as.Date(mydate, "",tryFormats = c("%Y-%m-%d", "%Y/%m/%d","%d-%m-%Y","%m-%d-%Y"))),
+           error = function(err) {FALSE})
+}
