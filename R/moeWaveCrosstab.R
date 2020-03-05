@@ -25,6 +25,7 @@
 #' @import stringr
 #' @import tidyr
 #' @import labelled
+#' @importFrom lubridate as_date
 
 moe_wave_crosstab <- function(x, y, df, weight, remove = c(""), n = TRUE,
                               pct_type = "row", format = "long"){
