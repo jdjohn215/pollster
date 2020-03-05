@@ -105,5 +105,7 @@ moe_wave_crosstab_3way <- function(x, y, z, df,
     output <- select(output, -n)
   }
 
-  output
+  output %>%
+    as_tibble() %>%
+    mutate({{z}} := guess_date({{z}}))
 }
