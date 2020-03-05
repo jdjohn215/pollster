@@ -40,6 +40,12 @@ moedeff_calc <- function(pct, deff, n){
 
 
 is_date <- function(mydate) {
-  tryCatch(!is.na(as.Date(mydate, "",tryFormats = c("%Y-%m-%d", "%Y/%m/%d","%d-%m-%Y","%m-%d-%Y"))),
-           error = function(err) {FALSE})
+  result <- tryCatch(!is.na(as.Date(mydate, "",tryFormats = c("%Y-%m-%d", "%Y/%m/%d","%d-%m-%Y","%m-%d-%Y"))),
+                     error = function(err) {FALSE})
+
+  if(unique(result) == TRUE){
+    TRUE
+  } else {
+    FALSE
+  }
 }
