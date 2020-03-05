@@ -71,5 +71,5 @@ moe_topline <- function(variable, df, weight, remove = c(""),
   }
 
   output %>%
-    mutate({{variable}} := guess_date({{variable}}))
+    as_tibble()
 }
