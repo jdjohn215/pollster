@@ -70,5 +70,6 @@ moe_topline <- function(variable, df, weight, remove = c(""),
     d.output <- select(d.output, -Percent)
   }
 
-  output
+  output %>%
+    mutate({{variable}} := guess_date({{variable}}))
 }
