@@ -136,5 +136,7 @@ crosstab <- function(x, y, df, weight, remove = "", n = TRUE, pct_type = "row", 
     }
   }
 
-  d.output %>% as_tibble()
+  d.output %>%
+    as_tibble() %>%
+    mutate({{x}} := guess_date({{x}}))
 }
