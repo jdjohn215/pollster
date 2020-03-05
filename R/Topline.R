@@ -63,5 +63,7 @@ topline <- function(variable, df, weight, remove = c(""), n = TRUE,
     d.output <- select(d.output, -Percent)
   }
 
-  d.output %>% as_tibble()
+  d.output %>%
+    as_tibble() %>%
+    mutate({{variable}} := guess_date({{variable}}))
 }
