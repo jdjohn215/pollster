@@ -4,16 +4,8 @@
 \alias{topline}
 \title{weighted topline}
 \usage{
-topline(
-  variable,
-  df,
-  weight,
-  remove = c(""),
-  n = TRUE,
-  pct = TRUE,
-  valid_pct = TRUE,
-  cum_pct = TRUE
-)
+topline(variable, df, weight, remove = c(""), n = TRUE, pct = TRUE,
+  valid_pct = TRUE, cum_pct = TRUE)
 }
 \arguments{
 \item{variable}{the variable name}

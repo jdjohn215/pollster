@@ -4,16 +4,8 @@
 \alias{moe_topline}
 \title{weighted topline with margin of error}
 \usage{
-moe_topline(
-  variable,
-  df,
-  weight,
-  remove = c(""),
-  n = TRUE,
-  pct = TRUE,
-  valid_pct = TRUE,
-  cum_pct = TRUE
-)
+moe_topline(variable, df, weight, remove = c(""), n = TRUE,
+  pct = TRUE, valid_pct = TRUE, cum_pct = TRUE)
 }
 \arguments{
 \item{variable}{the variable name}

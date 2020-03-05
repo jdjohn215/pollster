@@ -4,16 +4,8 @@
 \alias{moe_crosstab}
 \title{weighted crosstabs with margin of error}
 \usage{
-moe_crosstab(
-  x,
-  y,
-  df,
-  weight,
-  remove = c(""),
-  n = TRUE,
-  pct_type = "row",
-  format = "long"
-)
+moe_crosstab(x, y, df, weight, remove = c(""), n = TRUE,
+  pct_type = "row", format = "long")
 }
 \arguments{
 \item{x}{The independent variable}

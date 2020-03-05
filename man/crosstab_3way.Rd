@@ -4,17 +4,8 @@
 \alias{crosstab_3way}
 \title{weighted 3-way crosstabs}
 \usage{
-crosstab_3way(
-  x,
-  y,
-  z,
-  df,
-  weight = zwave_weight,
-  remove = c(""),
-  n = TRUE,
-  pct_type = "row",
-  format = "wide"
-)
+crosstab_3way(x, y, z, df, weight = zwave_weight, remove = c(""),
+  n = TRUE, pct_type = "row", format = "wide")
 }
 \arguments{
 \item{x}{The independent variable}

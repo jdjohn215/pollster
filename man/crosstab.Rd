@@ -4,16 +4,8 @@
 \alias{crosstab}
 \title{weighted crosstabs}
 \usage{
-crosstab(
-  x,
-  y,
-  df,
-  weight,
-  remove = "",
-  n = TRUE,
-  pct_type = "row",
-  format = "wide"
-)
+crosstab(x, y, df, weight, remove = "", n = TRUE, pct_type = "row",
+  format = "wide")
 }
 \arguments{
 \item{x}{The independent variable}
