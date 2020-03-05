@@ -64,6 +64,5 @@ topline <- function(variable, df, weight, remove = c(""), n = TRUE,
   }
 
   d.output %>%
-    as_tibble() %>%
-    mutate({{variable}} := guess_date({{variable}}))
+    as_tibble()
 }
