@@ -39,7 +39,7 @@ moe_wave_crosstab <- function(x, y, df, weight, remove = c(""), n = TRUE,
     filter(!is.na({{x}})) %>%
     mutate({{x}} := to_factor({{x}})) %>%
     group_by({{x}}) %>%
-    summarise(deff = deff_calc({{weights}})) %>%
+    summarise(deff = deff_calc({{weight}})) %>%
     ungroup()
 
   # build the table, either row percents or cell percents
