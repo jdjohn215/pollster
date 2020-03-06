@@ -13,7 +13,7 @@ moe_topline(
   pct = TRUE,
   valid_pct = TRUE,
   cum_pct = TRUE,
-  zscore
+  zscore = 1.96
 )
 }
 \arguments{

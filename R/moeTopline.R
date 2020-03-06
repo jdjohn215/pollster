@@ -24,7 +24,7 @@
 #' @import labelled
 #'
 moe_topline <- function(variable, df, weight, remove = c(""),
-                        n = TRUE, pct = TRUE, valid_pct = TRUE, cum_pct = TRUE, zscore){
+                        n = TRUE, pct = TRUE, valid_pct = TRUE, cum_pct = TRUE, zscore = 1.96){
 
   # calculate the design effect
   deff <- df %>% pull({{weight}}) %>% deff_calc()
