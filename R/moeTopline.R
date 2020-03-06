@@ -14,6 +14,7 @@
 #' @param pct logical, if TRUE a column of percents is included
 #' @param valid_pct logical, if TRUE a column of valid percents is included
 #' @param cum_pct logical, if TRUE a column of cumulative percents is included
+#' @param zscore defaults to 1.96, consistent with a 95% confidence interval
 #'
 #' @return a tibble
 #' @export
@@ -23,7 +24,7 @@
 #' @import labelled
 #'
 moe_topline <- function(variable, df, weight, remove = c(""),
-                        n = TRUE, pct = TRUE, valid_pct = TRUE, cum_pct = TRUE){
+                        n = TRUE, pct = TRUE, valid_pct = TRUE, cum_pct = TRUE, zscore){
 
   # calculate the design effect
   deff <- df %>% pull({{weight}}) %>% deff_calc()
@@ -43,7 +44,7 @@ moe_topline <- function(variable, df, weight, remove = c(""),
               n = sum({{weight}}),
               pct = (n/first(total))) %>%
     ungroup() %>%
-    mutate(moe = moedeff_calc(pct = valid.pct/100, deff = deff, n = unweighted.n),
+    mutate(moe = moedeff_calc(pct = valid.pct/100, deff = deff, n = unweighted.n, zscore = zscore),
            cum = cumsum(valid.pct),
            valid.pct = replace(valid.pct, {{variable}} == "(Missing)", NA),
            cum = replace(cum, {{variable}} == "(Missing)", NA)) %>%

@@ -13,7 +13,8 @@ moe_crosstab_3way(
   remove = c(""),
   n = TRUE,
   pct_type = "row",
-  format = "long"
+  format = "long",
+  zscore = 1.96
 )
 }
 \arguments{
@@ -35,6 +36,8 @@ This will not affect any calculations made. The vector is not case-sensitive.}
 \item{pct_type}{Controls the kind of percentage values returned. One of "row" or "cell."}
 
 \item{format}{one of "long" or "wide"}
+
+\item{zscore}{defaults to 1.96, consistent with a 95% confidence interval}
 }
 \value{
 a tibble

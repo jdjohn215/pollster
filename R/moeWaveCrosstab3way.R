@@ -28,7 +28,8 @@
 
 moe_wave_crosstab_3way <- function(x, y, z, df,
                               weight, remove = c(""),
-                              n = TRUE, pct_type = "row", format = "long"){
+                              n = TRUE, pct_type = "row", format = "long",
+                              zscore = 1.96){
   # make sure the arguments are all correct
   stopifnot(pct_type %in% c("row", "cell"),
             format %in% c("wide", "long"))
@@ -60,7 +61,7 @@ moe_wave_crosstab_3way <- function(x, y, z, df,
                 n = first(n)) %>%
       ungroup() %>%
       inner_join(stats.by.wave) %>%
-      mutate(moe = moedeff_calc(pct = pct, deff = deff, n = n)) %>%
+      mutate(moe = moedeff_calc(pct = pct, deff = deff, n = n, zscore = zscore)) %>%
       mutate(pct = pct*100) %>%
       select(-observations) %>%
       # Remove values included in "remove" string
@@ -85,7 +86,7 @@ moe_wave_crosstab_3way <- function(x, y, z, df,
                 n = first(n)) %>%
       ungroup() %>%
       inner_join(stats.by.wave) %>%
-      mutate(moe = moedeff_calc(pct = pct, deff = deff, n = n)) %>%
+      mutate(moe = moedeff_calc(pct = pct, deff = deff, n = n, zscore = zscore)) %>%
       mutate(pct = pct*100) %>%
       select(-observations) %>%
       # Remove values included in "remove" string

@@ -13,7 +13,8 @@ moe_wave_crosstab_3way(
   remove = c(""),
   n = TRUE,
   pct_type = "row",
-  format = "long"
+  format = "long",
+  zscore = 1.96
 )
 }
 \arguments{

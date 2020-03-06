@@ -18,6 +18,7 @@
 #' @param pct_type Controls the kind of percentage values returned. One of "row" or "cell."
 #' Column percents are not supported.
 #' @param format one of "long" or "wide"
+#' @param zscore defaults to 1.96, consistent with a 95% confidence interval
 #'
 #' @return a tibble
 #' @export
@@ -28,7 +29,7 @@
 #' @importFrom lubridate as_date
 
 moe_wave_crosstab <- function(x, y, df, weight, remove = c(""), n = TRUE,
-                              pct_type = "row", format = "long"){
+                              pct_type = "row", format = "long", zscore = 1.96){
 
   # make sure the arguments are all correct
   stopifnot(pct_type %in% c("row", "cell"),
@@ -59,7 +60,7 @@ moe_wave_crosstab <- function(x, y, df, weight, remove = c(""), n = TRUE,
                 n = first(n)) %>%
       ungroup() %>%
       inner_join(stats.by.wave) %>%
-      mutate(moe = moedeff_calc(pct = pct, deff = deff, n = n)) %>%
+      mutate(moe = moedeff_calc(pct = pct, deff = deff, n = n, zscore = zscore)) %>%
       mutate(pct = pct*100) %>%
       select(-observations) %>%
       # Remove values included in "remove" string
@@ -82,7 +83,7 @@ moe_wave_crosstab <- function(x, y, df, weight, remove = c(""), n = TRUE,
                 n = first(n)) %>%
       ungroup() %>%
       inner_join(stats.by.wave) %>%
-      mutate(moe = moedeff_calc(pct = pct, deff = deff, n = n)) %>%
+      mutate(moe = moedeff_calc(pct = pct, deff = deff, n = n, zscore = zscore)) %>%
       mutate(pct = pct*100) %>%
       select(-observations) %>%
       # Remove values included in "remove" string

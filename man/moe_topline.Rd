@@ -12,7 +12,8 @@ moe_topline(
   n = TRUE,
   pct = TRUE,
   valid_pct = TRUE,
-  cum_pct = TRUE
+  cum_pct = TRUE,
+  zscore
 )
 }
 \arguments{
@@ -33,6 +34,8 @@ percentages, but in a separate row for column percentages.}
 \item{valid_pct}{logical, if TRUE a column of valid percents is included}
 
 \item{cum_pct}{logical, if TRUE a column of cumulative percents is included}
+
+\item{zscore}{defaults to 1.96, consistent with a 95% confidence interval}
 }
 \value{
 a tibble
