@@ -399,47 +399,13 @@ summary {
 <div id="installation" class="section level2">
 <h2>Installation</h2>
 <p>Install it this way.</p>
-<pre class="r"><code>devtools::install_github(&quot;jdjohn215/pollster&quot;)</code></pre>
-<pre><code>## 
-##   
-   checking for file ‘/private/var/folders/70/rv0w9kqx33dgs1pf58zg_mshw33c3j/T/Rtmp4dsR9X/remotesa1ec52e50064/jdjohn215-pollster-ac24e99/DESCRIPTION’ ...
-  
-✓  checking for file ‘/private/var/folders/70/rv0w9kqx33dgs1pf58zg_mshw33c3j/T/Rtmp4dsR9X/remotesa1ec52e50064/jdjohn215-pollster-ac24e99/DESCRIPTION’
-## 
-  
-─  preparing ‘pollster’:
-## 
-  
-   checking DESCRIPTION meta-information ...
-  
-✓  checking DESCRIPTION meta-information
-## 
-  
-─  checking for LF line-endings in source and make files and shell scripts
-## 
-  
-─  checking for empty or unneeded directories
-## 
-  
-─  looking to see if a ‘data/datalist’ file should be added
-## 
-  
-─  building ‘pollster_0.0.0.9000.tar.gz’
-## 
-  
-   Warning: invalid uid value replaced by that for user 'nobody'
-## 
-  
-   Warning: invalid gid value replaced by that for user 'nobody'
-##    
-## </code></pre>
-<pre class="r"><code>library(pollster)
-library(dplyr)</code></pre>
+<pre><code>devtools::install_github(&quot;jdjohn215/pollster&quot;)</code></pre>
 </div>
 <div id="basic-useage" class="section level2">
 <h2>Basic useage</h2>
 <p><code>pollster</code> includes a dataset of Illinois responses to the Current Population Survey’s voter registration supplement.</p>
-<pre class="r"><code>head(illinois)</code></pre>
+<pre class="r"><code>library(pollster)
+head(illinois)</code></pre>
 <pre><code>## # A tibble: 6 x 9
 ##    year     fips     sex   educ6 raceethnic maritalstatus      rv   voter weight
 ##   &lt;dbl&gt; &lt;dbl+lb&gt; &lt;dbl+l&gt; &lt;dbl+l&gt;  &lt;dbl+lbl&gt;     &lt;dbl+lbl&gt; &lt;dbl+l&gt; &lt;dbl+l&gt;  &lt;dbl&gt;
@@ -511,6 +477,15 @@ library(dplyr)</code></pre>
 <div id="making-tables-and-graphs" class="section level2">
 <h2>Making tables and graphs</h2>
 <p>Wide format is best for displaying table output. Long format is best for making graphs. <code>pollster</code> outputs dovetail seamlessly with <a href="https://www.rdocumentation.org/packages/knitr/versions/1.28/topics/kable"><code>knitr::kable()</code></a> and <a href="https://ggplot2.tidyverse.org/"><code>ggplot2::ggplot()</code></a>. These examples show very basic html table output, but you can customize the appearance of your tables almost endlessly in either html or pdf formats using Hao Zhu’s excellent <a href="https://haozhu233.github.io/kableExtra/"><code>kableExtra</code> package</a>.</p>
+<pre class="r"><code>library(dplyr)</code></pre>
+<pre><code>## 
+## Attaching package: 'dplyr'</code></pre>
+<pre><code>## The following objects are masked from 'package:stats':
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union</code></pre>
 <pre class="r"><code>crosstab(x = sex, y = educ6, df = illinois, weight = weight) %&gt;%
   knitr::kable(digits = 0)</code></pre>
 <table>
