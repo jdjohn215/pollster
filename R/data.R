@@ -1,0 +1,19 @@
+#' Illinois respondents to the Voting and Registration Supplement for the Current Population Survey
+#'
+#' A dataset containing the responses of 36,207 Illinois respondents to the Current
+#' Population Survey's biennial Voting and Registration Supplement for the Current
+#' Population Survey, 1996-2018.
+#'
+#' @format A data frame with 36207 rows and 9 variables:
+#' \describe{
+#'   \item{year}{year of survey}
+#'   \item{fips}{the state fips code}
+#'   \item{sex}{sex of the respondent, labelled value}
+#'   \item{educ6}{highest level of education for respondent, labelled values}
+#'   \item{raceethnic}{one of white, black, Hispanic, or other, labelled values}
+#'   \item{rv}{indicates if the respondent is registered to vote, labelled values}
+#'   \item{voter}{indicates if the respondent voted, labelled values}
+#'   \item{weight}{the number of people each respondent is calculated to represent}
+#' }
+#' @source \url{https://www.census.gov/topics/public-sector/voting.html}
+"illinois"
