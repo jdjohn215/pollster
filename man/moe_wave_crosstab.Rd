@@ -4,8 +4,16 @@
 \alias{moe_wave_crosstab}
 \title{weighted crosstabs with margin of error, where the x-variable identifies different survey waves}
 \usage{
-moe_wave_crosstab(x, y, df, weight, remove = c(""), n = TRUE,
-  pct_type = "row", format = "long")
+moe_wave_crosstab(
+  x,
+  y,
+  df,
+  weight,
+  remove = c(""),
+  n = TRUE,
+  pct_type = "row",
+  format = "long"
+)
 }
 \arguments{
 \item{x}{The independent variable, which uniquely identifies survey waves}

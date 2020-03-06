@@ -4,8 +4,17 @@
 \alias{moe_crosstab_3way}
 \title{weighted 3-way crosstabs with margin of error}
 \usage{
-moe_crosstab_3way(x, y, z, df, weight, remove = c(""), n = TRUE,
-  pct_type = "row", format = "long")
+moe_crosstab_3way(
+  x,
+  y,
+  z,
+  df,
+  weight,
+  remove = c(""),
+  n = TRUE,
+  pct_type = "row",
+  format = "long"
+)
 }
 \arguments{
 \item{x}{The independent variable}
