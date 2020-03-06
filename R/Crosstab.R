@@ -21,6 +21,7 @@
 #' @import stringr
 #' @import tidyr
 #' @import labelled
+#' @importFrom lubridate as_date
 
 crosstab <- function(x, y, df, weight, remove = "", n = TRUE, pct_type = "row", format = "wide"){
 
