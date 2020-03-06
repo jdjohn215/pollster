@@ -4,7 +4,7 @@
 \alias{moedeff_calc}
 \title{Calculate the margin of error (including design effect) of a sample}
 \usage{
-moedeff_calc(pct, deff, n)
+moedeff_calc(pct, deff, n, zscore = 1.96)
 }
 \arguments{
 \item{pct}{a proportion}
@@ -12,6 +12,8 @@ moedeff_calc(pct, deff, n)
 \item{deff}{a design effect}
 
 \item{n}{the sample size}
+
+\item{zscore}{defaults to 1.96, consistent with a 95% confidence interval.}
 }
 \value{
 A percentage
@@ -21,5 +23,5 @@ A percentage
 }
 \details{
 This function returns the margin of error including design effect of a given sample of weighted data using the formula
- sqrt(deff)*1.96*sqrt((pct*(1-pct))/(n-1))*100
+ sqrt(deff)*zscore*sqrt((pct*(1-pct))/(n-1))*100
 }
