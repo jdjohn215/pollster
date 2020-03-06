@@ -35,7 +35,7 @@ Column percents are not supported.}
 
 \item{format}{one of "long" or "wide"}
 
-\item{zscore}{defaults to 1.96, consistent with a 95% confidence interval}
+\item{zscore}{defaults to 1.96, consistent with a 95\% confidence interval}
 }
 \value{
 a tibble
