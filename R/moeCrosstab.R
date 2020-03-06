@@ -17,7 +17,6 @@
 #' @param format one of "long" or "wide"
 #' @param zscore defaults to 1.96, consistent with a 95% confidence interval
 #'
-#'
 #' @return a tibble
 #' @export
 #' @import dplyr
