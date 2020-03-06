@@ -24,6 +24,7 @@
 #' @import stringr
 #' @import tidyr
 #' @import labelled
+#' @importFrom lubridate as_date
 
 moe_wave_crosstab_3way <- function(x, y, z, df,
                               weight, remove = c(""),
@@ -109,11 +110,11 @@ moe_wave_crosstab_3way <- function(x, y, z, df,
   is.it.a.date <- is_date(df %>% pull({{z}}))
 
   if(is.it.a.date == TRUE){
-    d.output %>%
+    output %>%
       as_tibble() %>%
       mutate({{z}} := lubridate::as_date({{z}}))
   } else{
-    d.output %>%
+    output %>%
       as_tibble()
   }
 }
