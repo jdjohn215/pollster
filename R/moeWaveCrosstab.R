@@ -18,7 +18,7 @@
 #' @param pct_type Controls the kind of percentage values returned. One of "row" or "cell."
 #' Column percents are not supported.
 #' @param format one of "long" or "wide"
-#' @param zscore defaults to 1.96, consistent with a 95% confidence interval
+#' @param zscore defaults to 1.96, consistent with a 95\% confidence interval
 #'
 #' @return a tibble
 #' @export

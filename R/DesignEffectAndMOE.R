@@ -29,7 +29,7 @@ deff_calc <- function(w){
 #' @param pct a proportion
 #' @param deff a design effect
 #' @param n the sample size
-#' @param zscore defaults to 1.96, consistent with a 95% confidence interval.
+#' @param zscore defaults to 1.96, consistent with a 95\% confidence interval.
 #'
 #' @return A percentage
 #' @export

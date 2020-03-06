@@ -36,6 +36,8 @@ This will not affect any calculations made. The vector is not case-sensitive.}
 \item{pct_type}{Controls the kind of percentage values returned. One of "row" or "cell."}
 
 \item{format}{one of "long" or "wide"}
+
+\item{zscore}{defaults to 1.96, consistent with a 95\% confidence interval}
 }
 \value{
 a tibble

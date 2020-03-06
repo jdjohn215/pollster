@@ -35,7 +35,7 @@ percentages, but in a separate row for column percentages.}
 
 \item{cum_pct}{logical, if TRUE a column of cumulative percents is included}
 
-\item{zscore}{defaults to 1.96, consistent with a 95% confidence interval}
+\item{zscore}{defaults to 1.96, consistent with a 95\% confidence interval}
 }
 \value{
 a tibble

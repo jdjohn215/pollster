@@ -13,7 +13,7 @@ moedeff_calc(pct, deff, n, zscore = 1.96)
 
 \item{n}{the sample size}
 
-\item{zscore}{defaults to 1.96, consistent with a 95% confidence interval.}
+\item{zscore}{defaults to 1.96, consistent with a 95\% confidence interval.}
 }
 \value{
 A percentage
