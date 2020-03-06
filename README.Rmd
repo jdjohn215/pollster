@@ -3,7 +3,7 @@ title: "Weighted data survey tables in R"
 author: "John Johnson"
 date: "3/4/2020"
 output:
-  html_document:
+  github_document:
     toc: true
     toc_depth: 2
 ---
