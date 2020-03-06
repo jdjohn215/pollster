@@ -37,10 +37,8 @@ There are also two special functions which calculate the design effect component
 
 Install it this way.
 
-```{r, message=FALSE, warning=FALSE}
+```
 devtools::install_github("jdjohn215/pollster")
-library(pollster)
-library(dplyr)
 ```
 
 ## Basic useage
@@ -48,6 +46,7 @@ library(dplyr)
 `pollster` includes a dataset of Illinois responses to the Current Population Survey's voter registration supplement.
 
 ```{r}
+library(pollster)
 head(illinois)
 ```
 
@@ -80,6 +79,7 @@ crosstab_3way(x = educ6, y = maritalstatus, z = year, df = illinois, weight = we
 Wide format is best for displaying table output. Long format is best for making graphs. `pollster` outputs dovetail seamlessly with [`knitr::kable()`](https://www.rdocumentation.org/packages/knitr/versions/1.28/topics/kable) and [`ggplot2::ggplot()`](https://ggplot2.tidyverse.org/). These examples show very basic html table output, but you can customize the appearance of your tables almost endlessly in either html or pdf formats using Hao Zhu's excellent [`kableExtra` package](https://haozhu233.github.io/kableExtra/).
 
 ```{r}
+library(dplyr)
 crosstab(x = sex, y = educ6, df = illinois, weight = weight) %>%
   knitr::kable(digits = 0)
 ```
