@@ -8,6 +8,8 @@ Description: Calculate weighted topline and crosstab tables of simple weighted s
     Optionally, include the margin of error. Output takes the form of tibbles (simple data frames).
     This package conveniently handles labelled data, such as that commonly used by Stata and SPSS.
     Complex survey design is not supported at this time.
+Depends:
+	R (>= 2.10)
 Imports:
    dplyr,
    stringr,
