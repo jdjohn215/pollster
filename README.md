@@ -60,7 +60,7 @@ head(illinois)
 Make a topline table like this. The output is a tibble.
 
 ``` r
-topline(variable = maritalstatus, df = illinois, weight = weight)
+topline(df = illinois, variable = maritalstatus, weight = weight)
 #> # A tibble: 3 x 5
 #>   Response           Frequency Percent `Valid Percent` `Cumulative Percent`
 #>   <fct>                  <dbl>   <dbl>           <dbl>                <dbl>
@@ -72,7 +72,7 @@ topline(variable = maritalstatus, df = illinois, weight = weight)
 Make a crosstab like this.
 
 ``` r
-crosstab(x = educ6, y = maritalstatus, df = illinois, weight = weight)
+crosstab(df = illinois, x = educ6, y = maritalstatus, weight = weight)
 #> # A tibble: 6 x 5
 #>   educ6    Married `Widow/divorced/Sep` `Never Married`         n
 #>   <fct>      <dbl>                <dbl>           <dbl>     <dbl>
@@ -88,7 +88,7 @@ If you prefer, you can also get the output in long
 format.
 
 ``` r
-crosstab(x = educ6, y = maritalstatus, df = illinois, weight = weight, format = "long")
+crosstab(df = illinois, x = educ6, y = maritalstatus, weight = weight, format = "long")
 #> # A tibble: 18 x 4
 #>    educ6    maritalstatus        pct         n
 #>    <fct>    <fct>              <dbl>     <dbl>
@@ -117,7 +117,7 @@ variable. Often, this third variable is
 time.
 
 ``` r
-crosstab_3way(x = educ6, y = maritalstatus, z = year, df = illinois, weight = weight)
+crosstab_3way(df = illinois, x = educ6, y = maritalstatus, z = year, weight = weight)
 #> # A tibble: 72 x 6
 #>    educ6 year         n Married `Widow/divorced/Sep` `Never Married`
 #>    <fct> <fct>    <dbl>   <dbl>                <dbl>           <dbl>
@@ -155,7 +155,7 @@ library(dplyr)
 #> The following objects are masked from 'package:base':
 #> 
 #>     intersect, setdiff, setequal, union
-crosstab(x = sex, y = educ6, df = illinois, weight = weight) %>%
+crosstab(df = illinois, x = sex, y = educ6, weight = weight) %>%
   knitr::kable(digits = 0)
 ```
 
@@ -166,7 +166,7 @@ crosstab(x = sex, y = educ6, df = illinois, weight = weight) %>%
 
 ``` r
 library(ggplot2)
-crosstab(x = sex, y = educ6, df = illinois, weight = weight, format = "long") %>%
+crosstab(df = illinois, x = sex, y = educ6, weight = weight, format = "long") %>%
   ggplot(aes(educ6, pct, fill = sex)) +
   geom_bar(stat = "identity", position = "dodge")
 ```
@@ -178,7 +178,7 @@ faceted
 plots.
 
 ``` r
-crosstab_3way(x = sex, y = educ6, z = year, df = illinois, weight = weight, format = "long") %>%
+crosstab_3way(df = illinois, x = sex, y = educ6, z = year, weight = weight, format = "long") %>%
   mutate(year = as.numeric(as.character(year))) %>%
   ggplot(aes(year, pct, col = sex)) +
   geom_line() +
@@ -193,7 +193,7 @@ Each `pollster` function comes with a twin function which includes a
 margin of error column. For example:
 
 ``` r
-moe_topline(variable = voter, df = illinois, weight = weight)
+moe_topline(df = illinois, variable = voter, weight = weight)
 #> # A tibble: 2 x 6
 #>   Response  Frequency Percent `Valid Percent`   MOE `Cumulative Percent`
 #>   <fct>         <dbl>   <dbl>           <dbl> <dbl>                <dbl>
@@ -206,7 +206,7 @@ specify wide
 format.
 
 ``` r
-moe_crosstab(x = raceethnic, y = voter, df = illinois, weight = weight, format = "wide")
+moe_crosstab(df = illinois, x = raceethnic, y = voter, weight = weight, format = "wide")
 #> # A tibble: 4 x 6
 #>   raceethnic     n pct_Voted `pct_Not voted` moe_Voted `moe_Not voted`
 #>   <fct>      <int>     <dbl>           <dbl>     <dbl>           <dbl>
@@ -217,9 +217,7 @@ moe_crosstab(x = raceethnic, y = voter, df = illinois, weight = weight, format =
 ```
 
 ``` r
-moe_crosstab(x = raceethnic, y = voter, 
-             df = illinois, 
-             weight = weight) %>%
+moe_crosstab(df = illinois, x = raceethnic, y = voter, weight = weight) %>%
   ggplot(aes(x = pct, y = raceethnic, xmin = (pct - moe), xmax = (pct + moe), color = voter)) +
   geom_pointrange(position = position_dodge(width = 0.2))
 ```
