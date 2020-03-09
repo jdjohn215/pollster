@@ -36,7 +36,7 @@ component of the margin of error for each survey wave independently.
 
 Install it this way.
 
-    devtools::install_github("jdjohn215/pollster")
+    remotes::install_github("jdjohn215/pollster")
 
 ## Basic useage
 
