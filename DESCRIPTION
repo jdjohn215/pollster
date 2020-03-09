@@ -13,7 +13,8 @@ Imports:
    stringr,
    tidyr,
    labelled,
-   lubridate
+   lubridate,
+   forcats
 Suggests:
 	ggplot2,
 	knitr
