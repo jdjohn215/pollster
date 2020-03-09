@@ -10,8 +10,13 @@ Description: Calculate weighted topline and crosstab tables of simple weighted s
     Complex survey design is not supported at this time.
 Imports:
    dplyr,
+   stringr,
+   tidyr,
    labelled,
    lubridate
+Suggests:
+	ggplot2,
+	knitr
 License: CC0
 Encoding: UTF-8
 LazyData: true
