@@ -11,6 +11,7 @@
 #'   \item{sex}{sex of the respondent, labelled value}
 #'   \item{educ6}{highest level of education for respondent, labelled values}
 #'   \item{raceethnic}{one of white, black, Hispanic, or other, labelled values}
+#'   \item{maritalstatus}{one of Married, Widowed/divorced/Sep, or Never Married, labelled values}
 #'   \item{rv}{indicates if the respondent is registered to vote, labelled values}
 #'   \item{voter}{indicates if the respondent voted, labelled values}
 #'   \item{weight}{the number of people each respondent is calculated to represent}
