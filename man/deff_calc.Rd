@@ -20,7 +20,3 @@ This function returns the design effect of a given sample using the formula
  length(w)*sum(w^2)/(sum(w)^2).
  It is designed for use in the moe family of functions.
 }
-\examples{
-deff_calc <- function(d$zwave_weight)
-
-}

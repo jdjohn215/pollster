@@ -11,9 +11,6 @@
 #' @return A number
 #' @export
 #'
-#' @examples
-#' deff_calc <- function(d$zwave_weight)
-#'
 deff_calc <- function(w){
   length(w)*sum(w^2)/(sum(w)^2)
 }
