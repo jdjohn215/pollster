@@ -12,6 +12,14 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-"
+)
+```
+
 `pollster` is an R package for making topline and crosstab tables of simple weighted survey data. The package is designed for use with labelled data, like what you might use the `haven` package to import from Stata or SPSS. It follows tidyverse programming conventions, and output tables are also in the form of a tidy data frame, or tibble.
 
 Only simple weights are currently supported. For complex survey designs, we recommend the excellent [`survey` package](http://r-survey.r-forge.r-project.org/survey/). 
