@@ -26,6 +26,7 @@
 #' @import stringr
 #' @import tidyr
 #' @import labelled
+#' @import rlang
 #' @importFrom lubridate as_date
 
 moe_wave_crosstab <- function(x, y, df, weight, remove = c(""), n = TRUE,

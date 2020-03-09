@@ -25,6 +25,7 @@
 #' @import stringr
 #' @import tidyr
 #' @import labelled
+#' @import rlang
 #' @importFrom lubridate as_date
 
 moe_wave_crosstab_3way <- function(x, y, z, df,

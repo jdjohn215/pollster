@@ -22,6 +22,7 @@
 #' @import stringr
 #' @import tidyr
 #' @import labelled
+#' @import rlang
 #' @importFrom lubridate as_date
 
 crosstab_3way <- function(x, y, z, df,

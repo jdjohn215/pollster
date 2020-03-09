@@ -21,6 +21,7 @@
 #' @import stringr
 #' @import tidyr
 #' @import labelled
+#' @import rlang
 
 topline <- function(variable, df, weight, remove = c(""), n = TRUE,
                     pct = TRUE, valid_pct = TRUE, cum_pct = TRUE){

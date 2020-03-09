@@ -22,6 +22,7 @@
 #' @import stringr
 #' @import tidyr
 #' @import labelled
+#' @import rlang
 #'
 moe_topline <- function(variable, df, weight, remove = c(""),
                         n = TRUE, pct = TRUE, valid_pct = TRUE, cum_pct = TRUE, zscore = 1.96){

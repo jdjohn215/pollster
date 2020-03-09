@@ -16,7 +16,8 @@ Imports:
    tidyr,
    labelled,
    lubridate,
-   forcats
+   forcats,
+   rlang
 Suggests:
 	ggplot2,
 	knitr
