@@ -5,9 +5,9 @@
 \title{weighted crosstabs}
 \usage{
 crosstab(
+  df,
   x,
   y,
-  df,
   weight,
   remove = "",
   n = TRUE,
@@ -16,11 +16,11 @@ crosstab(
 )
 }
 \arguments{
+\item{df}{The data source}
+
 \item{x}{The independent variable}
 
 \item{y}{The dependent variable}
-
-\item{df}{The data source}
 
 \item{weight}{The weighting variable, defaults to zwave_weight}
 

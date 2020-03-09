@@ -5,10 +5,10 @@
 \title{weighted 3-way crosstabs with margin of error, where the z-variable identifies different survey waves}
 \usage{
 moe_wave_crosstab_3way(
+  df,
   x,
   y,
   z,
-  df,
   weight,
   remove = c(""),
   n = TRUE,
@@ -18,13 +18,13 @@ moe_wave_crosstab_3way(
 )
 }
 \arguments{
+\item{df}{The data source}
+
 \item{x}{The independent variable}
 
 \item{y}{The dependent variable}
 
 \item{z}{The second control variable, uniquely identifies survey waves}
-
-\item{df}{The data source}
 
 \item{weight}{The weighting variable}
 

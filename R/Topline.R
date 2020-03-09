@@ -4,8 +4,8 @@
 #'
 #'  By default the table includes a column for frequency count, percent, valid percent, and cumulative percent.
 #'
-#' @param variable the variable name
 #' @param df The data source
+#' @param variable the variable name
 #' @param weight The weighting variable, defaults to zwave_weight
 #' @param remove An optional character vector of values to remove from final table (e.g. "refused").
 #' This will not affect any calculations made. The vector is not case-sensitive.
@@ -23,7 +23,7 @@
 #' @import labelled
 #' @import rlang
 
-topline <- function(variable, df, weight, remove = c(""), n = TRUE,
+topline <- function(df, variable, weight, remove = c(""), n = TRUE,
                     pct = TRUE, valid_pct = TRUE, cum_pct = TRUE){
   # Make table
   d.output <- df %>%

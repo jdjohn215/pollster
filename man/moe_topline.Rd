@@ -5,8 +5,8 @@
 \title{weighted topline with margin of error}
 \usage{
 moe_topline(
-  variable,
   df,
+  variable,
   weight,
   remove = c(""),
   n = TRUE,
@@ -17,9 +17,9 @@ moe_topline(
 )
 }
 \arguments{
-\item{variable}{the variable name}
-
 \item{df}{The data source}
+
+\item{variable}{the variable name}
 
 \item{weight}{The weighting variable, defaults to zwave_weight}
 

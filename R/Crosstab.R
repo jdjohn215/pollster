@@ -4,9 +4,9 @@
 #'
 #'  Options  include row, column, or cell percentages. The tibble can be in long or wide format.
 #'
+#' @param df The data source
 #' @param x The independent variable
 #' @param y The dependent variable
-#' @param df The data source
 #' @param weight The weighting variable, defaults to zwave_weight
 #' @param remove An optional character vector of values to remove from final table (e.g. "refused").
 #' This will not affect any calculations made. The vector is not case-sensitive.
@@ -24,7 +24,7 @@
 #' @import rlang
 #' @importFrom lubridate as_date
 
-crosstab <- function(x, y, df, weight, remove = "", n = TRUE, pct_type = "row", format = "wide"){
+crosstab <- function(df, x, y, weight, remove = "", n = TRUE, pct_type = "row", format = "wide"){
 
   # make sure the arguments are all correct
   stopifnot(pct_type %in% c("row", "cell", "column", "col"),

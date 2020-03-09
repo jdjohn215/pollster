@@ -8,9 +8,9 @@
 #'  error includes the design effect of the weights, calculated separately for each
 #'  survey wave.
 #'
+#' @param df The data source
 #' @param x The independent variable, which uniquely identifies survey waves
 #' @param y The dependent variable
-#' @param df The data source
 #' @param weight The weighting variable, defaults to zwave_weight
 #' @param remove An optional character vector of values to remove from final table (e.g. "refused").
 #' This will not affect any calculations made. The vector is not case-sensitive.
@@ -29,7 +29,7 @@
 #' @import rlang
 #' @importFrom lubridate as_date
 
-moe_wave_crosstab <- function(x, y, df, weight, remove = c(""), n = TRUE,
+moe_wave_crosstab <- function(df, x, y, weight, remove = c(""), n = TRUE,
                               pct_type = "row", format = "long", zscore = 1.96){
 
   # make sure the arguments are all correct

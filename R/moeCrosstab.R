@@ -5,9 +5,9 @@
 #'  Options  include row or cell percentages. The tibble can be in long or wide format. The margin of
 #'  error includes the design effect of the weights.
 #'
+#' @param df The data source
 #' @param x The independent variable
 #' @param y The dependent variable
-#' @param df The data source
 #' @param weight The weighting variable, defaults to zwave_weight
 #' @param remove An optional character vector of values to remove from final table (e.g. "refused").
 #' This will not affect any calculations made. The vector is not case-sensitive.
@@ -26,7 +26,7 @@
 #' @import rlang
 #' @importFrom lubridate as_date
 
-moe_crosstab <- function(x, y, df, weight, remove = c(""),
+moe_crosstab <- function(df, x, y, weight, remove = c(""),
                          n = TRUE, pct_type = "row", format = "long", zscore = 1.96){
 
   # make sure the arguments are all correct

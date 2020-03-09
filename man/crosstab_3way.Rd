@@ -5,10 +5,10 @@
 \title{weighted 3-way crosstabs}
 \usage{
 crosstab_3way(
+  df,
   x,
   y,
   z,
-  df,
   weight,
   remove = c(""),
   n = TRUE,
@@ -17,13 +17,13 @@ crosstab_3way(
 )
 }
 \arguments{
+\item{df}{The data source}
+
 \item{x}{The independent variable}
 
 \item{y}{The dependent variable}
 
 \item{z}{The second control variable}
-
-\item{df}{The data source}
 
 \item{weight}{The weighting variable}
 

@@ -5,9 +5,9 @@
 \title{weighted crosstabs with margin of error, where the x-variable identifies different survey waves}
 \usage{
 moe_wave_crosstab(
+  df,
   x,
   y,
-  df,
   weight,
   remove = c(""),
   n = TRUE,
@@ -17,11 +17,11 @@ moe_wave_crosstab(
 )
 }
 \arguments{
+\item{df}{The data source}
+
 \item{x}{The independent variable, which uniquely identifies survey waves}
 
 \item{y}{The dependent variable}
-
-\item{df}{The data source}
 
 \item{weight}{The weighting variable, defaults to zwave_weight}
 

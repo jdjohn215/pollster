@@ -5,8 +5,8 @@
 \title{weighted topline}
 \usage{
 topline(
-  variable,
   df,
+  variable,
   weight,
   remove = c(""),
   n = TRUE,
@@ -16,9 +16,9 @@ topline(
 )
 }
 \arguments{
-\item{variable}{the variable name}
-
 \item{df}{The data source}
+
+\item{variable}{the variable name}
 
 \item{weight}{The weighting variable, defaults to zwave_weight}
 

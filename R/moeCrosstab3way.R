@@ -5,10 +5,10 @@
 #'  Options  include row or cell percentages. The tibble can be in long or wide format.
 #'  These tables are ideal for use with small multiples created with ggplot2::facet_wrap.
 #'
+#' @param df The data source
 #' @param x The independent variable
 #' @param y The dependent variable
 #' @param z The second control variable
-#' @param df The data source
 #' @param weight The weighting variable
 #' @param remove An optional character vector of values to remove from final table (e.g. "refused").
 #' This will not affect any calculations made. The vector is not case-sensitive.
@@ -26,7 +26,7 @@
 #' @import rlang
 #' @importFrom lubridate as_date
 
-moe_crosstab_3way <- function(x, y, z, df,
+moe_crosstab_3way <- function(df, x, y, z,
                               weight, remove = c(""),
                               n = TRUE, pct_type = "row", format = "long", zscore = 1.96){
   # make sure the arguments are all correct
