@@ -57,6 +57,16 @@ crosstab(df = illinois, x = sex, y = educ6, weight = weight, format = "long") %>
 
 ## Margin of error
 
+### How the margin of error is calculated
+
+The margin of error is calculated including the design effect of the sample weights, using the following formula:
+
+`sqrt(design effect)*zscore*sqrt((pct*(1-pct))/(n-1))*100`
+
+The design effect is calculated using the formula `length(weights)*sum(weights^2)/(sum(weights)^2)`.
+
+------
+
 Get at topline table with the margin of error in a separate column using the `moe_crosstab` function. By default, a z-score of 1.96 (95% confidence interval is used). Supply your own desired z-score using the `zscore` argument. Only row and cell percents are supported. By default, the table format is long because I anticipate making visualizations will be the most common use-case for this graphic.
 
 ```{r}
@@ -80,11 +90,10 @@ illinois %>%
   geom_pointrange(position = position_dodge(width = 0.2))
 ```
 
+### Special case, the x-variable identifies survey waves
 
-## How the margin of error is calculated
+If the x-variable in your crosstab uniquely identifies survey waves for which the weights were independently generated, it is best practice to calculate the design effect independently for each wave. `moe_wave_crosstab` does just that. All of the arguments remain the same as in `moe_crosstab`.
 
-The margin of error is calculated including the design effect of the sample weights, using the following formula:
-
-`sqrt(design effect)*zscore*sqrt((pct*(1-pct))/(n-1))*100`
-
-The design effect is calculated using the formula `length(weights)*sum(weights^2)/(sum(weights)^2)`.
+```{r}
+moe_wave_crosstab(df = illinois, x = year, y = rv, weight = weight)
+```
