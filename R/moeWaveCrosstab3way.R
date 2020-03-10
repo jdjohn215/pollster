@@ -71,7 +71,8 @@ moe_wave_crosstab_3way <- function(df, x, y, z,
              !str_to_upper({{y}}) %in% str_to_upper(remove),
              !str_to_upper({{z}}) %in% str_to_upper(remove)) %>%
       # move total row to end
-      select(-one_of("n"), one_of("n"))
+      select(-one_of("n"), one_of("n")) %>%
+      select(-deff)
   } else if(pct_type == "cell"){
     output <- df %>%
       filter(!is.na({{x}}),
@@ -95,7 +96,8 @@ moe_wave_crosstab_3way <- function(df, x, y, z,
       filter(!str_to_upper({{x}}) %in% str_to_upper(remove),
              !str_to_upper({{y}}) %in% str_to_upper(remove)) %>%
       # move total row to end
-      select(-one_of("n"), one_of("n"))
+      select(-one_of("n"), one_of("n")) %>%
+      select(-deff)
   }
 
   # convert to wide format if required
