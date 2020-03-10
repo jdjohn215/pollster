@@ -1,0 +1,85 @@
+---
+title: "3-way crosstabs"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{crosstab3way}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(pollster)
+library(dplyr)
+library(knitr)
+library(ggplot2)
+```
+
+It's common to want to view a crosstab of two variables by a third variable, for instance educational attainment by sex *and* marital status. The function `crosstab_3way` accomplishes this. Row and cell percents are both supported; column percents are not.
+
+```{r}
+illinois %>%
+  # filter for recent years & limited ages
+  filter(year > 2009,
+         age > 39) %>%
+  crosstab_3way(x = sex, y = educ6, z = maritalstatus, weight = weight,
+                remove = c("widow/divorced/sep"),
+                n = FALSE) %>%
+  kable(digits = 0, caption = "Educational attainment by sex and marital status among Illinois residents ages 35+",
+        format = "html")
+```
+
+Three-way crosstabs plot well as small multiples using ggplot facets.
+
+```{r, fig.width=6, fig.height=4}
+illinois %>%
+  # filter for recent years & limited ages
+  filter(year > 2009,
+         age > 34) %>%
+  crosstab_3way(x = sex, y = educ6, z = maritalstatus, weight = weight,
+                remove = c("widow/divorced/sep"), 
+                format = "long") %>%
+  ggplot(aes(educ6, pct, fill = maritalstatus)) +
+  geom_bar(stat = "identity", position = position_dodge()) +
+  facet_wrap(facets = vars(sex)) +
+  labs("Educational attainment by sex and marital status",
+       subtitle = "Illinois residents ages 40+") +
+  theme(legend.position = "top")
+```
+
+The same plot can be made with margin of errors as well. (See the "crosstabs" vignette for a more detailed discussion of margin of errors.)
+
+
+```{r, fig.width=6, fig.height=4}
+illinois %>%
+  # filter for recent years & limited ages
+  filter(year > 2009,
+         age > 34) %>%
+  moe_crosstab_3way(x = sex, y = educ6, z = maritalstatus, weight = weight,
+                remove = c("widow/divorced/sep"), format = "long") %>%
+  ggplot(aes(educ6, pct, fill = maritalstatus)) +
+  geom_bar(stat = "identity", position = position_dodge(),
+           alpha = 0.5) +
+  geom_errorbar(aes(ymin = (pct - moe), ymax = (pct + moe),
+                    color = maritalstatus),
+                position = position_dodge()) +
+  facet_wrap(facets = vars(sex)) +
+  labs(title = "Educational attainment by sex and marital status",
+       subtitle = "Illinois residents ages 35+",
+       caption = "Current Population Survey, 2010-2018") +
+  theme(legend.position = "top")
+```
+
+### Special case, when the z-variable identifies survey waves
+
+If the x-variable in your crosstab uniquely identifies survey waves for which the weights were independently generated, it is best practice to calculate the design effect independently for each wave. `moe_wave_crosstab_3way` does just that. All of the arguments remain the same as in `moe_crosstab_3way`.
+
+```{r}
+moe_wave_crosstab_3way(df = illinois, x = sex, y = educ6, z = year, weight = weight)
+```
