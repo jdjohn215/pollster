@@ -47,3 +47,7 @@ a tibble
 Options  include row or cell percentages. The tibble can be in long or wide format. The margin of
  error includes the design effect of the weights.
 }
+\examples{
+moe_crosstab(df = illinois, x = voter, y = raceethnic, weight = weight)
+moe_crosstab(df = illinois, x = voter, y = raceethnic, weight = weight, n = FALSE)
+}

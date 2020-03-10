@@ -22,6 +22,10 @@
 #' @import tidyr
 #' @import labelled
 #' @import rlang
+#'
+#' @examples
+#' topline(illinois, sex, weight)
+#' topline(illinois, sex, weight, pct = F)
 
 topline <- function(df, variable, weight, remove = c(""), n = TRUE,
                     pct = TRUE, valid_pct = TRUE, cum_pct = TRUE){

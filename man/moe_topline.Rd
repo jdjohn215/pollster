@@ -46,3 +46,7 @@ a tibble
 \details{
 By default the table includes a column for frequency count, percent, valid percent, and cumulative percent.
 }
+\examples{
+moe_topline(df = illinois, variable = educ6, weight = weight)
+moe_topline(df = illinois, variable = educ6, weight = weight, remove = c("LT HS"))
+}

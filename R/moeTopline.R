@@ -24,6 +24,9 @@
 #' @import labelled
 #' @import rlang
 #'
+#' @examples
+#' moe_topline(df = illinois, variable = educ6, weight = weight)
+#' moe_topline(df = illinois, variable = educ6, weight = weight, remove = c("LT HS"))
 moe_topline <- function(df, variable, weight, remove = c(""),
                         n = TRUE, pct = TRUE, valid_pct = TRUE, cum_pct = TRUE, zscore = 1.96){
 

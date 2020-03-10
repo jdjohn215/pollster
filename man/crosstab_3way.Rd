@@ -46,3 +46,7 @@ a tibble
 Options  include row or cell percentages. The tibble can be in long or wide format.
  These tables are ideal for use with small multiples created with ggplot2::facet_wrap.
 }
+\examples{
+crosstab_3way(df = illinois, x = sex, y = educ6, z = maritalstatus, weight = weight)
+crosstab_3way(df = illinois, x = sex, y = educ6, z = maritalstatus, weight = weight, format = "wide")
+}

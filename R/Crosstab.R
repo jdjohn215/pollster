@@ -23,6 +23,10 @@
 #' @import labelled
 #' @import rlang
 #' @importFrom lubridate as_date
+#'
+#' @examples
+#' crosstab(df = illinois, x = voter, y = raceethnic, weight = weight)
+#' crosstab(df = illinois, x = voter, y = raceethnic, weight = weight, n = FALSE)
 
 crosstab <- function(df, x, y, weight, remove = "", n = TRUE, pct_type = "row", format = "wide"){
 

@@ -25,3 +25,6 @@ A percentage
 This function returns the margin of error including design effect of a given sample of weighted data using the formula
  sqrt(deff)*zscore*sqrt((pct*(1-pct))/(n-1))*100
 }
+\examples{
+moedeff_calc(pct = 0.515, deff = 1.6, n = 214)
+}

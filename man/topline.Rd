@@ -43,3 +43,7 @@ a tibble
 \details{
 By default the table includes a column for frequency count, percent, valid percent, and cumulative percent.
 }
+\examples{
+topline(illinois, sex, weight)
+topline(illinois, sex, weight, pct = F)
+}

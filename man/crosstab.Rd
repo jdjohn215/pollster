@@ -43,3 +43,7 @@ a tibble
 \details{
 Options  include row, column, or cell percentages. The tibble can be in long or wide format.
 }
+\examples{
+crosstab(df = illinois, x = voter, y = raceethnic, weight = weight)
+crosstab(df = illinois, x = voter, y = raceethnic, weight = weight, n = FALSE)
+}

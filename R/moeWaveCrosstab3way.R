@@ -27,6 +27,10 @@
 #' @import labelled
 #' @import rlang
 #' @importFrom lubridate as_date
+#'
+#' @examples
+#' moe_crosstab_3way(df = illinois, x = sex, y = educ6, z = year, weight = weight)
+#' moe_crosstab_3way(df = illinois, x = sex, y = educ6, z = year, weight = weight, format = "wide")
 
 moe_wave_crosstab_3way <- function(df, x, y, z,
                               weight, remove = c(""),

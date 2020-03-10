@@ -11,6 +11,9 @@
 #' @return A number
 #' @export
 #'
+#' @examples
+#' deff_calc(illinois$weight)
+#'
 deff_calc <- function(w){
   length(w)*sum(w^2)/(sum(w)^2)
 }
@@ -31,7 +34,8 @@ deff_calc <- function(w){
 #' @return A percentage
 #' @export
 #'
-#'
+#' @examples
+#' moedeff_calc(pct = 0.515, deff = 1.6, n = 214)
 moedeff_calc <- function(pct, deff, n, zscore = 1.96){
   sqrt(deff)*zscore*sqrt((pct*(1-pct))/(n-1))*100
 }

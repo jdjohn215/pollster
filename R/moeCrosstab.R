@@ -25,6 +25,10 @@
 #' @import labelled
 #' @import rlang
 #' @importFrom lubridate as_date
+#'
+#' @examples
+#' moe_crosstab(df = illinois, x = voter, y = raceethnic, weight = weight)
+#' moe_crosstab(df = illinois, x = voter, y = raceethnic, weight = weight, n = FALSE)
 
 moe_crosstab <- function(df, x, y, weight, remove = c(""),
                          n = TRUE, pct_type = "row", format = "long", zscore = 1.96){

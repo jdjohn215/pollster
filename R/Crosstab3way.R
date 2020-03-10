@@ -24,6 +24,10 @@
 #' @import labelled
 #' @import rlang
 #' @importFrom lubridate as_date
+#'
+#' @examples
+#' crosstab_3way(df = illinois, x = sex, y = educ6, z = maritalstatus, weight = weight)
+#' crosstab_3way(df = illinois, x = sex, y = educ6, z = maritalstatus, weight = weight, format = "wide")
 
 crosstab_3way <- function(df, x, y, z,
                           weight, remove = c(""),

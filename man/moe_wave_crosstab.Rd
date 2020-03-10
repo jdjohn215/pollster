@@ -50,3 +50,7 @@ Options  include row or cell percentages. The tibble can be in long or wide form
  error includes the design effect of the weights, calculated separately for each
  survey wave.
 }
+\examples{
+moe_wave_crosstab(df = illinois, x = year, y = maritalstatus, weight = weight)
+moe_wave_crosstab(df = illinois, x = year, y = maritalstatus, weight = weight, format = "wide")
+}
