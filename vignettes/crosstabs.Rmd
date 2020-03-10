@@ -54,3 +54,37 @@ crosstab(df = illinois, x = sex, y = educ6, weight = weight, format = "long") %>
   geom_bar(stat = "identity", position = position_dodge()) +
   labs(title = "Educational attainment of the Illinois adult population by gender")
 ```
+
+## Margin of error
+
+Get at topline table with the margin of error in a separate column using the `moe_crosstab` function. By default, a z-score of 1.96 (95% confidence interval is used). Supply your own desired z-score using the `zscore` argument. Only row and cell percents are supported. By default, the table format is long because I anticipate making visualizations will be the most common use-case for this graphic.
+
+```{r}
+moe_crosstab(illinois, educ6, voter, weight)
+```
+
+A wide format table looks like this.
+
+```{r}
+moe_crosstab(illinois, educ6, voter, weight, format = "wide")
+```
+
+`ggplot2` offers [multiple ways](http://www.sthda.com/english/wiki/ggplot2-error-bars-quick-start-guide-r-software-and-data-visualization) to visualize the margin of error. Here is one good option. (Please note, if you don't have ggplot2 >= [3.3.0](https://www.tidyverse.org/blog/2020/03/ggplot2-3-3-0/) you'll get an error message.)
+
+```{r, fig.width=5}
+illinois %>%
+  filter(year == 2016) %>%
+  moe_crosstab(educ6, voter, weight) %>%
+  ggplot(aes(x = pct, y = educ6, xmin = (pct - moe), xmax = (pct + moe),
+             color = voter)) +
+  geom_pointrange(position = position_dodge(width = 0.2))
+```
+
+
+## How the margin of error is calculated
+
+The margin of error is calculated including the design effect of the sample weights, using the following formula:
+
+`sqrt(design effect)*zscore*sqrt((pct*(1-pct))/(n-1))*100`
+
+The design effect is calculated using the formula `length(weights)*sum(weights^2)/(sum(weights)^2)`.
