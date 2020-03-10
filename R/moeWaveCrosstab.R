@@ -68,7 +68,8 @@ moe_wave_crosstab <- function(df, x, y, weight, remove = c(""), n = TRUE,
       filter(!str_to_upper({{x}}) %in% str_to_upper(remove),
              !str_to_upper({{y}}) %in% str_to_upper(remove)) %>%
       # move total row to end
-      select(-one_of("n"), one_of("n"))
+      select(-one_of("n"), one_of("n")) %>%
+      select.list(-deff)
   } else if(pct_type == "cell"){
     output <- df %>%
       filter(!is.na({{x}}),
@@ -91,7 +92,8 @@ moe_wave_crosstab <- function(df, x, y, weight, remove = c(""), n = TRUE,
       filter(!str_to_upper({{x}}) %in% str_to_upper(remove),
              !str_to_upper({{y}}) %in% str_to_upper(remove)) %>%
       # move total row to end
-      select(-one_of("n"), one_of("n"))
+      select(-one_of("n"), one_of("n")) %>%
+      select.list(-deff)
   }
 
   # convert to wide format if required
