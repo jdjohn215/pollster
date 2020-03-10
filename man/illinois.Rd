@@ -14,6 +14,7 @@
   \item{maritalstatus}{one of Married, Widowed/divorced/Sep, or Never Married, labelled values}
   \item{rv}{indicates if the respondent is registered to vote, labelled values}
   \item{voter}{indicates if the respondent voted, labelled values}
+  \item{age}{the age of the respondent, numeric values}
   \item{weight}{the number of people each respondent is calculated to represent}
 }}
 \source{
