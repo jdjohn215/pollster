@@ -1,0 +1,49 @@
+---
+title: "toplines"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{toplines}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(pollster)
+library(dplyr)
+library(knitr)
+library(ggplot2)
+```
+
+The default topline table comes with columns for response category, frequency count, percent, valid percent, and cumulative percent.
+
+```{r}
+topline(df = illinois, variable = voter, weight = weight) %>%
+  kable()
+```
+
+Because the output is a `tibble`, it's simple to manipulate it in any way you want after creating it. Use `dplyr::select` to remove columns or `dplyr::filter` to remove rows. For convenience, the `topline` function also provides ways to do this within the function call. For example, the `remove` argument accepts a character vector of response values to be removed from the table *after* all statistics are calculated. This is especially useful for survey data with a "refused" category.
+
+```{r}
+topline(df = illinois, variable = voter, weight = weight, 
+        remove = c("(Missing)"), pct = FALSE) %>%
+  mutate(Frequency = prettyNum(Frequency, big.mark = ",")) %>%
+  kable(digits = 0)
+```
+
+Refer to the [`kableExtra` package](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html) for lots of examples on how to format the appearance of these tables in either HTML or PDF latex formats.
+
+## Graphs
+
+```{r, fig.width=4}
+topline(df = illinois, variable = voter, weight = weight) %>%
+  ggplot(aes(Response, Percent, fill = Response)) +
+  geom_bar(stat = "identity")
+```
+
