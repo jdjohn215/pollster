@@ -102,11 +102,11 @@ moe_crosstab_3way <- function(df, x, y, z,
   is.it.a.date <- is_date(df %>% pull({{z}}))
 
   if(is.it.a.date == TRUE){
-    d.output %>%
+    output %>%
       as_tibble() %>%
       mutate({{z}} := lubridate::as_date({{z}}))
   } else{
-    d.output %>%
+    output %>%
       as_tibble()
   }
 }
