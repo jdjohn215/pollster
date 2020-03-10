@@ -19,9 +19,11 @@ Imports:
    forcats,
    rlang
 Suggests:
-	ggplot2,
-	knitr
+    ggplot2,
+    knitr,
+    rmarkdown
 License: CC0
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.0.2
+VignetteBuilder: knitr
