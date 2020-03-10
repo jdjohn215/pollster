@@ -104,6 +104,11 @@ crosstab <- function(df, x, y, weight, remove = "", n = TRUE, pct_type = "row", 
         d.output <- suppressWarnings(bind_rows(d.output, total.row))
       }
     }
+
+    # remove n column if n == FALSE
+    if(n == FALSE){
+      d.output <- select(d.output, -n)
+    }
   } else if(str_to_lower(pct_type) == "cell"){
     d.output <- df %>%
       # Remove missing cases
