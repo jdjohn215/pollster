@@ -1,0 +1,56 @@
+---
+title: "crosstabs"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{crosstabs}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(pollster)
+library(dplyr)
+library(knitr)
+library(ggplot2)
+```
+
+Crosstabs can come in [wide or long format](https://en.wikipedia.org/wiki/Wide_and_narrow_data). Each is useful, depending on your purpose. Wide data is best for display tables. Long data is usually better for making plots, for instance..
+
+Here is a wide table.
+
+```{r}
+crosstab(df = illinois, x = sex, y = educ6, weight = weight) %>%
+  kable()
+```
+
+And here is long format.
+
+```{r}
+crosstab(df = illinois, x = sex, y = educ6, weight = weight, format = "long")
+```
+
+By default, row percentages are used. You can also explictly choose cell or column percentages using the `pct_type` argument. I discourage the use of column percentages--it's better to just flip the x and y variables and make row percents--but the option is included to match functionality provided by other standard statistical software.
+
+```{r}
+# cell percentages
+crosstab(df = illinois, x = sex, y = educ6, weight = weight, pct_type = "cell")
+
+# column percentages
+crosstab(df = illinois, x = sex, y = educ6, weight = weight, pct_type = "column")
+```
+
+To make a graph, just feed your `tibble` output to a `ggplot2` function.
+
+```{r, fig.width=5.6}
+crosstab(df = illinois, x = sex, y = educ6, weight = weight, format = "long") %>%
+  ggplot(aes(x = educ6, y = pct, fill = sex)) +
+  geom_bar(stat = "identity", position = position_dodge()) +
+  labs(title = "Educational attainment of the Illinois adult population by gender")
+```
