@@ -89,7 +89,7 @@ crosstab <- function(df, x, y, weight, remove = "", n = TRUE, pct_type = "row", 
         group_by({{y}}, n) %>%
         summarise() %>%
         pivot_wider(names_from = {{y}}, values_from = n) %>%
-        mutate(" " = "n")
+        mutate("Response" = "n")
 
       # spread the output table
       d.output <- d.output %>%
