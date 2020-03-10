@@ -47,3 +47,16 @@ topline(df = illinois, variable = voter, weight = weight) %>%
   geom_bar(stat = "identity")
 ```
 
+## Margin of error
+
+Get at topline table with the margin of error in a separate column using the `moe_topline` function. By default, a z-score of 1.96 (95% confidence interval is used). Supply your own desired z-score using the `zscore` argument.
+
+```{r}
+moe_topline(df = illinois, variable = educ6, weight = weight)
+```
+
+The margin of error is calculated including the design effect of the sample weights, using the following formula:
+
+`sqrt(design effect)*zscore*sqrt((pct*(1-pct))/(n-1))*100`
+
+The design effect is calculated using the formula `length(weights)*sum(weights^2)/(sum(weights)^2)`.
