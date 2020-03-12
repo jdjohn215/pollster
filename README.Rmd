@@ -49,7 +49,7 @@ Install it this way.
 remotes::install_github("jdjohn215/pollster")
 ```
 
-## Basic useage
+## Basic usage
 
 `pollster` includes a dataset of Illinois responses to the Current Population Survey's voter registration supplement.
 

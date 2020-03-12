@@ -625,19 +625,20 @@ body {
 <p>Install it this way.</p>
 <pre><code>remotes::install_github(&quot;jdjohn215/pollster&quot;)
 </code></pre>
-<h2 id="basic-useage">Basic useage</h2>
+<h2 id="basic-usage">Basic usage</h2>
 <p><code>pollster</code> includes a dataset of Illinois responses to the Current Population Survey’s voter registration supplement.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">library</span>(pollster)</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">head</span>(illinois)</a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">#&gt; # A tibble: 6 x 9</span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">#&gt;    year     fips     sex   educ6 raceethnic maritalstatus      rv   voter weight</span></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt;   &lt;dbl&gt; &lt;dbl+lb&gt; &lt;dbl+l&gt; &lt;dbl+l&gt;  &lt;dbl+lbl&gt;     &lt;dbl+lbl&gt; &lt;dbl+l&gt; &lt;dbl+l&gt;  &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt; 1  1996  17 [IL] 1 [Mal… 2 [HS]   1 [White] 1 [Married]   2 [Not… 2 [Not…  2037.</span></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt; 2  1996  17 [IL] 2 [Fem… 3 [Som…  1 [White] 1 [Married]   1 [Reg… 1 [Vot…  2067.</span></a>
-<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#&gt; 3  1996  17 [IL] 2 [Fem… 2 [HS]   1 [White] 3 [Never Mar… 1 [Reg… 1 [Vot…  1871.</span></a>
-<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt; 4  1996  17 [IL] 2 [Fem… 2 [HS]   1 [White] 3 [Never Mar… 1 [Reg… 1 [Vot…  1902.</span></a>
-<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt; 5  1996  17 [IL] 1 [Mal… 2 [HS]   2 [Black] 1 [Married]   1 [Reg… 1 [Vot…  1622.</span></a>
-<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt; 6  1996  17 [IL] 2 [Fem… 2 [HS]   2 [Black] 1 [Married]   1 [Reg… 1 [Vot…  1330.</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">#&gt; # A tibble: 6 x 10</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">#&gt;    year    fips     sex   educ6 raceethnic maritalstatus      rv   voter   age</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt;   &lt;dbl&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt;  &lt;dbl+lbl&gt;     &lt;dbl+lbl&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl&gt;</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt; 1  1996 17 [IL] 1 [Mal… 2 [HS]   1 [White] 1 [Married]   2 [Not… 2 [Not…    29</span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt; 2  1996 17 [IL] 2 [Fem… 3 [Som…  1 [White] 1 [Married]   1 [Reg… 1 [Vot…    28</span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#&gt; 3  1996 17 [IL] 2 [Fem… 2 [HS]   1 [White] 3 [Never Mar… 1 [Reg… 1 [Vot…    82</span></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt; 4  1996 17 [IL] 2 [Fem… 2 [HS]   1 [White] 3 [Never Mar… 1 [Reg… 1 [Vot…    72</span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt; 5  1996 17 [IL] 1 [Mal… 2 [HS]   2 [Black] 1 [Married]   1 [Reg… 1 [Vot…    75</span></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt; 6  1996 17 [IL] 2 [Fem… 2 [HS]   2 [Black] 1 [Married]   1 [Reg… 1 [Vot…    60</span></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt; # … with 1 more variable: weight &lt;dbl&gt;</span></a></code></pre></div>
 <p>Make a topline table like this. The output is a tibble.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">topline</span>(<span class="dt">df =</span> illinois, <span class="dt">variable =</span> maritalstatus, <span class="dt">weight =</span> weight)</a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co">#&gt; # A tibble: 3 x 5</span></a>

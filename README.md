@@ -38,7 +38,7 @@ Install it this way.
 
     remotes::install_github("jdjohn215/pollster")
 
-## Basic useage
+## Basic usage
 
 `pollster` includes a dataset of Illinois responses to the Current
 Population Survey’s voter registration supplement.
@@ -46,15 +46,16 @@ Population Survey’s voter registration supplement.
 ``` r
 library(pollster)
 head(illinois)
-#> # A tibble: 6 x 9
-#>    year     fips     sex   educ6 raceethnic maritalstatus      rv   voter weight
-#>   <dbl> <dbl+lb> <dbl+l> <dbl+l>  <dbl+lbl>     <dbl+lbl> <dbl+l> <dbl+l>  <dbl>
-#> 1  1996  17 [IL] 1 [Mal… 2 [HS]   1 [White] 1 [Married]   2 [Not… 2 [Not…  2037.
-#> 2  1996  17 [IL] 2 [Fem… 3 [Som…  1 [White] 1 [Married]   1 [Reg… 1 [Vot…  2067.
-#> 3  1996  17 [IL] 2 [Fem… 2 [HS]   1 [White] 3 [Never Mar… 1 [Reg… 1 [Vot…  1871.
-#> 4  1996  17 [IL] 2 [Fem… 2 [HS]   1 [White] 3 [Never Mar… 1 [Reg… 1 [Vot…  1902.
-#> 5  1996  17 [IL] 1 [Mal… 2 [HS]   2 [Black] 1 [Married]   1 [Reg… 1 [Vot…  1622.
-#> 6  1996  17 [IL] 2 [Fem… 2 [HS]   2 [Black] 1 [Married]   1 [Reg… 1 [Vot…  1330.
+#> # A tibble: 6 x 10
+#>    year    fips     sex   educ6 raceethnic maritalstatus      rv   voter   age
+#>   <dbl> <dbl+l> <dbl+l> <dbl+l>  <dbl+lbl>     <dbl+lbl> <dbl+l> <dbl+l> <dbl>
+#> 1  1996 17 [IL] 1 [Mal… 2 [HS]   1 [White] 1 [Married]   2 [Not… 2 [Not…    29
+#> 2  1996 17 [IL] 2 [Fem… 3 [Som…  1 [White] 1 [Married]   1 [Reg… 1 [Vot…    28
+#> 3  1996 17 [IL] 2 [Fem… 2 [HS]   1 [White] 3 [Never Mar… 1 [Reg… 1 [Vot…    82
+#> 4  1996 17 [IL] 2 [Fem… 2 [HS]   1 [White] 3 [Never Mar… 1 [Reg… 1 [Vot…    72
+#> 5  1996 17 [IL] 1 [Mal… 2 [HS]   2 [Black] 1 [Married]   1 [Reg… 1 [Vot…    75
+#> 6  1996 17 [IL] 2 [Fem… 2 [HS]   2 [Black] 1 [Married]   1 [Reg… 1 [Vot…    60
+#> # … with 1 more variable: weight <dbl>
 ```
 
 Make a topline table like this. The output is a tibble.
