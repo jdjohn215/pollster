@@ -51,5 +51,6 @@ Options  include row or cell percentages. The tibble can be in long or wide form
 }
 \examples{
 moe_crosstab_3way(df = illinois, x = sex, y = educ6, z = maritalstatus, weight = weight)
-moe_crosstab_3way(df = illinois, x = sex, y = educ6, z = maritalstatus, weight = weight, format = "wide")
+moe_crosstab_3way(df = illinois, x = sex, y = educ6, z = maritalstatus, weight = weight,
+format = "wide")
 }

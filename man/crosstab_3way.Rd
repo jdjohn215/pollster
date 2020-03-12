@@ -48,5 +48,6 @@ Options  include row or cell percentages. The tibble can be in long or wide form
 }
 \examples{
 crosstab_3way(df = illinois, x = sex, y = educ6, z = maritalstatus, weight = weight)
-crosstab_3way(df = illinois, x = sex, y = educ6, z = maritalstatus, weight = weight, format = "wide")
+crosstab_3way(df = illinois, x = sex, y = educ6, z = maritalstatus, weight = weight,
+format = "wide")
 }

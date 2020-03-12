@@ -28,7 +28,8 @@
 #'
 #' @examples
 #' moe_crosstab_3way(df = illinois, x = sex, y = educ6, z = maritalstatus, weight = weight)
-#' moe_crosstab_3way(df = illinois, x = sex, y = educ6, z = maritalstatus, weight = weight, format = "wide")
+#' moe_crosstab_3way(df = illinois, x = sex, y = educ6, z = maritalstatus, weight = weight,
+#' format = "wide")
 
 moe_crosstab_3way <- function(df, x, y, z,
                               weight, remove = c(""),

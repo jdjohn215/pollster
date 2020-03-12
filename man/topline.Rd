@@ -45,5 +45,5 @@ By default the table includes a column for frequency count, percent, valid perce
 }
 \examples{
 topline(illinois, sex, weight)
-topline(illinois, sex, weight, pct = F)
+topline(illinois, sex, weight, pct = FALSE)
 }
