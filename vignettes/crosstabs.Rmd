@@ -36,7 +36,7 @@ And here is long format.
 crosstab(df = illinois, x = sex, y = educ6, weight = weight, format = "long")
 ```
 
-By default, row percentages are used. You can also explictly choose cell or column percentages using the `pct_type` argument. I discourage the use of column percentages--it's better to just flip the x and y variables and make row percents--but the option is included to match functionality provided by other standard statistical software.
+By default, row percentages are used. You can also explicitly choose cell or column percentages using the `pct_type` argument. I discourage the use of column percentages--it's better to just flip the x and y variables and make row percents--but the option is included to match functionality provided by other standard statistical software.
 
 ```{r}
 # cell percentages
