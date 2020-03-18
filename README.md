@@ -19,8 +19,9 @@ The core functions are:
   - `crosstab()`
   - `crosstab_3way()`
 
-Each function also has a twin version which includes a column for the
-margin of error calculated to include the design effect of the weights.
+Each of these functions also has a twin version which includes a column
+for the margin of error calculated to include the design effect of the
+weights.
 
   - `moe_topline()`
   - `moe_crosstab()`
@@ -31,6 +32,14 @@ component of the margin of error for each survey wave independently.
 
   - `moe_wave_crosstab()`
   - `moe_wave_crosstab_3way()`
+
+Other functions are included to calculate simple weighted summary
+statistics.
+
+  - `wtd_mean()` is a tidy-compliant wrapper around
+    `stats::weighted.mean()`
+  - `summary_table()` returns a tible with summary statistics similar to
+    the Stata command `sum`
 
 ## Installation
 
@@ -224,3 +233,31 @@ moe_crosstab(df = illinois, x = raceethnic, y = voter, weight = weight) %>%
 ```
 
 ![](man/figures/README-unnamed-chunk-12-1.png)<!-- -->
+
+## Summary table
+
+`summary_table()` creates a simple summary table of a weighted numeric
+variable.
+
+``` r
+summary_table(df = illinois, variable = age, weight = weight)
+#> # A tibble: 1 x 8
+#>   variable_name unweighted_obse… weighted_observ… weighted_mean min_value
+#>   <chr>                    <int>            <dbl>         <dbl>     <dbl>
+#> 1 age                      36207       102678514.          46.2        18
+#> # … with 3 more variables: max_value <dbl>, missing_observations <int>,
+#> #   missing_weighted_observations <dbl>
+```
+
+You can choose `name_style = "pretty"` if you want column headings
+appropriate for a formatted table.
+
+``` r
+summary_table(df = illinois, variable = age, 
+              weight = weight, name_style = "pretty") %>%
+  knitr::kable()
+```
+
+| Variable | Unweighted obs | Weighted obs | Weighted mean | Min | Max | Unweighted missing | Weighted missing |
+| :------- | -------------: | -----------: | ------------: | --: | --: | -----------------: | ---------------: |
+| age      |          36207 |    102678514 |      46.19646 |  18 |  90 |                  0 |                0 |

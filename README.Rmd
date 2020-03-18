@@ -30,7 +30,7 @@ The core functions are:
 * `crosstab()`
 * `crosstab_3way()`
 
-Each function also has a twin version which includes a column for the margin of error calculated to include the design effect of the weights.
+Each of these functions also has a twin version which includes a column for the margin of error calculated to include the design effect of the weights.
 
 * `moe_topline()`
 * `moe_crosstab()`
@@ -40,6 +40,11 @@ There are also two special functions which calculate the design effect component
 
 * `moe_wave_crosstab()`
 * `moe_wave_crosstab_3way()`
+
+Other functions are included to calculate simple weighted summary statistics.
+
+* `wtd_mean()` is a tidy-compliant wrapper around `stats::weighted.mean()`
+* `summary_table()` returns a tible with summary statistics similar to the Stata command `sum`
 
 ## Installation
 
@@ -129,4 +134,20 @@ moe_crosstab(df = illinois, x = raceethnic, y = voter, weight = weight, format =
 moe_crosstab(df = illinois, x = raceethnic, y = voter, weight = weight) %>%
   ggplot(aes(x = pct, y = raceethnic, xmin = (pct - moe), xmax = (pct + moe), color = voter)) +
   geom_pointrange(position = position_dodge(width = 0.2))
+```
+
+## Summary table
+
+`summary_table()` creates a simple summary table of a weighted numeric variable.
+
+```{r}
+summary_table(df = illinois, variable = age, weight = weight)
+```
+
+You can choose `name_style = "pretty"` if you want column headings appropriate for a formatted table.
+
+```{r}
+summary_table(df = illinois, variable = age, 
+              weight = weight, name_style = "pretty") %>%
+  knitr::kable()
 ```
