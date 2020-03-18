@@ -1,3 +1,8 @@
+## Resubmission
+This is a resubmission. In this version I have:
+
+* changed a CRAN link in a vignette to canonical form.
+
 ## Test environments
 * local OS X install, R 3.6.0
 * ubuntu 16.04 (on travis-ci), R 3.6.0
