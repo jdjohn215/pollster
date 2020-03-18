@@ -1,7 +1,7 @@
 ## Test environments
 * local OS X install, R 3.6.0
 * ubuntu 16.04 (on travis-ci), R 3.6.0
-* win-builder (devel and release)
+* win-builder (devel, release, and old)
 
 ## R CMD check results
 
