@@ -22,7 +22,7 @@ crosstab(
 
 \item{y}{The dependent variable}
 
-\item{weight}{The weighting variable, defaults to zwave_weight}
+\item{weight}{The weighting variable}
 
 \item{remove}{An optional character vector of values to remove from final table (e.g. "refused").
 This will not affect any calculations made. The vector is not case-sensitive.}

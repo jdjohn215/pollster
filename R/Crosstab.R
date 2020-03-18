@@ -7,7 +7,7 @@
 #' @param df The data source
 #' @param x The independent variable
 #' @param y The dependent variable
-#' @param weight The weighting variable, defaults to zwave_weight
+#' @param weight The weighting variable
 #' @param remove An optional character vector of values to remove from final table (e.g. "refused").
 #' This will not affect any calculations made. The vector is not case-sensitive.
 #' @param n logical, if TRUE numeric totals are included. They are included in a separate column for row and cell
