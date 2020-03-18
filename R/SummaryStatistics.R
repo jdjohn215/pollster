@@ -14,8 +14,10 @@
 #' @importFrom stats weighted.mean
 #'
 #' @examples
-#' illinois %>% wtd_mean(age, weight)
 #' wtd_mean(illinois, age, weight)
+#'
+#' library(dplyr)
+#' illinois %>% wtd_mean(age, weight)
 wtd_mean <- function(df, variable, weight){
   df %>%
     summarise(mean = weighted.mean(x = {{variable}}, w = {{weight}})) %>%

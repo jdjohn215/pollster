@@ -21,6 +21,8 @@ a numeric value
 wrapper around stats::weighted.mean().
 }
 \examples{
-illinois \%>\% wtd_mean(age, weight)
 wtd_mean(illinois, age, weight)
+
+library(dplyr)
+illinois \%>\% wtd_mean(age, weight)
 }
