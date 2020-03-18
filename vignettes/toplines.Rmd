@@ -37,7 +37,7 @@ topline(df = illinois, variable = voter, weight = weight,
   kable(digits = 0)
 ```
 
-Refer to the [`kableExtra` package](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html) for lots of examples on how to format the appearance of these tables in either HTML or PDF latex formats.
+Refer to the [`kableExtra` package](https://cran.r-project.org/web/packages/kableExtra/index.html) for lots of examples on how to format the appearance of these tables in either HTML or PDF latex formats. I recommend the vignettes "Create Awesome HTML Table with knitr::kable and kableExtra" and "Create Awesome PDF Table with knitr::kable and kableExtra.
 
 ## Graphs
 
