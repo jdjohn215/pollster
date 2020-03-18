@@ -38,6 +38,7 @@ wtd_mean <- function(df, variable, weight){
 #' @return a tibble
 #' @export
 #' @import dplyr
+#' @importFrom stats weighted.mean
 #'
 #' @examples
 #' summary_table(illinois, age, weight)
