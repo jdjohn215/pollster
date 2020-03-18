@@ -10,6 +10,8 @@
 #' @return a numeric value
 #' @export
 #' @import dplyr
+#' @import rlang
+#' @importFrom stats weighted.mean
 #'
 #' @examples
 #' illinois %>% wtd_mean(age, weight)
@@ -38,6 +40,7 @@ wtd_mean <- function(df, variable, weight){
 #' @return a tibble
 #' @export
 #' @import dplyr
+#' @import rlang
 #' @importFrom stats weighted.mean
 #'
 #' @examples
