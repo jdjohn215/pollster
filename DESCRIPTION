@@ -11,17 +11,17 @@ Description: Calculate weighted topline and crosstab tables of simple weighted s
 Depends:
 	R (>= 2.10)
 Imports:
-   dplyr (>= 0.8.4),
-   stringr (>= 1.4.0),
-   tidyr (>= 1.0.2),
-   labelled (>= 2.2.2),
-   lubridate (>= 1.7.4),
-   forcats (>= 0.5.0),
+   dplyr (>= 0.8.0),
+   stringr (>= 1.0.0),
+   tidyr (>= 1.0.0),
+   labelled (>= 2.0.0),
+   lubridate,
+   forcats,
    rlang  (>= 0.4.5)
 Suggests:
     ggplot2 (>= 3.3.0),
-    knitr (>= 1.28),
-    rmarkdown (>= 2.1)
+    knitr,
+    rmarkdown
 License: CC0
 Encoding: UTF-8
 LazyData: true
