@@ -1,7 +1,9 @@
 ## Resubmission
 This is a resubmission. In this version I have:
 
-* changed a CRAN link in a vignette to canonical form.
+* Fixed the formatting of software names in the description
+* Added more detail to the description
+* Added a methods citation to the description
 
 ## Test environments
 * local OS X install, R 3.6.0
