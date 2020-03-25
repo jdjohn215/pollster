@@ -45,6 +45,10 @@ statistics.
 
 Install it this way.
 
+    install.packages("pollster")
+
+Or get the development version.
+
     remotes::install_github("jdjohn215/pollster")
 
 ## Basic usage
