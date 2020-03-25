@@ -1,6 +1,6 @@
 # pollster 0.1.0.9000
 
-* no changes yet
+* add CRAN installation to readme
 
 # pollster 0.1.0
 
