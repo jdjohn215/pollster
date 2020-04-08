@@ -50,7 +50,7 @@ moe_wave_crosstab <- function(df, x, y, weight, remove = c(""), n = TRUE,
 
   # build the table, either row percents or cell percents
   if(pct_type == "row"){
-    output <- df %>%
+    d.output <- df %>%
       filter(!is.na({{x}}),
              !is.na({{y}})) %>%
       mutate({{x}} := to_factor({{x}}),
@@ -74,7 +74,7 @@ moe_wave_crosstab <- function(df, x, y, weight, remove = c(""), n = TRUE,
       select(-one_of("n"), one_of("n")) %>%
       select(-deff)
   } else if(pct_type == "cell"){
-    output <- df %>%
+    d.output <- df %>%
       filter(!is.na({{x}}),
              !is.na({{y}})) %>%
       mutate({{x}} := to_factor({{x}}),
@@ -101,13 +101,13 @@ moe_wave_crosstab <- function(df, x, y, weight, remove = c(""), n = TRUE,
 
   # convert to wide format if required
   if(format == "wide"){
-    output <- output %>%
+    d.output <- d.output %>%
       pivot_wider(names_from = {{y}}, values_from = c(pct, moe), values_fill = list(pct = 0, moe = 0))
   }
 
   # remove n if required
   if(n == FALSE){
-    output <- select(output, -n)
+    d.output <- select(d.output, -n)
   }
 
   # test if date or number

@@ -42,7 +42,7 @@ moe_crosstab_3way <- function(df, x, y, z,
 
   # build the table, either row percents or cell percents
   if(pct_type == "row"){
-    output <- df %>%
+    d.output <- df %>%
       filter(!is.na({{x}}),
              !is.na({{y}}),
              !is.na({{z}})) %>%
@@ -67,7 +67,7 @@ moe_crosstab_3way <- function(df, x, y, z,
       # move total row to end
       select(-one_of("n"), one_of("n"))
   } else if(pct_type == "cell"){
-    output <- df %>%
+    d.output <- df %>%
       filter(!is.na({{x}}),
              !is.na({{y}})) %>%
       mutate({{x}} := to_factor({{x}}),
@@ -93,13 +93,13 @@ moe_crosstab_3way <- function(df, x, y, z,
 
   # convert to wide format if required
   if(format == "wide"){
-    output <- output %>%
+    d.output <- d.output %>%
       pivot_wider(names_from = {{y}}, values_from = c(pct, moe), values_fill = list(pct = 0, moe = 0))
   }
 
   # remove n if required
   if(n == FALSE){
-    output <- select(output, -n)
+    d.output <- select(d.output, -n)
   }
 
   # test if date or number
