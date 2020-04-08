@@ -1,10 +1,3 @@
-## Resubmission
-This is a resubmission. In this version I have:
-
-* Fixed the formatting of software names in the description
-* Added more detail to the description
-* Added a methods citation to the description
-
 ## Test environments
 * local OS X install, R 3.6.0
 * ubuntu 16.04 (on travis-ci), R 3.6.0
@@ -15,4 +8,4 @@ This is a resubmission. In this version I have:
 0 errors | 0 warnings | 0 notes
 
 ## Downstream dependencies
-* None. This is a new release.
+* No downstream dependencies

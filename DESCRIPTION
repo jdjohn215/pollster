@@ -1,7 +1,7 @@
 Package: pollster
 Type: Package
 Title: Calculate Crosstab and Topline Tables of Weighted Survey Data
-Version: 0.1.0.9000
+Version: 0.1.1
 Author: John D. Johnson [aut, cre]
 Maintainer: John D. Johnson <john.d.johnson@marquette.edu>
 Description: Calculate common types of tables for weighted survey data.
