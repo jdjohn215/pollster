@@ -103,7 +103,7 @@ moe_wave_crosstab <- function(df, x, y, weight, remove = c(""), n = TRUE,
   # convert to wide format if required
   if(format == "wide"){
     output <- output %>%
-      pivot_wider(names_from = {{y}}, values_from = c(pct, moe))
+      pivot_wider(names_from = {{y}}, values_from = c(pct, moe), values_fill = list(pct = 0, moe = 0))
   }
 
   # remove n if required

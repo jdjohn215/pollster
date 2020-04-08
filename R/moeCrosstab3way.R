@@ -95,7 +95,7 @@ moe_crosstab_3way <- function(df, x, y, z,
   # convert to wide format if required
   if(format == "wide"){
     output <- output %>%
-      pivot_wider(names_from = {{y}}, values_from = c(pct, moe))
+      pivot_wider(names_from = {{y}}, values_from = c(pct, moe), values_fill = list(pct = 0, moe = 0))
   }
 
   # remove n if required
