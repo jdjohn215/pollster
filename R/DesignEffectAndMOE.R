@@ -39,15 +39,3 @@ deff_calc <- function(w){
 moedeff_calc <- function(pct, deff, n, zscore = 1.96){
   sqrt(deff)*zscore*sqrt((pct*(1-pct))/(n-1))*100
 }
-
-
-is_date <- function(mydate) {
-  result <- tryCatch(!is.na(as.Date({{mydate}}, "",tryFormats = c("%Y-%m-%d", "%Y/%m/%d","%d-%m-%Y","%m-%d-%Y"))),
-                     error = function(err) {FALSE})
-
-  if(unique(result) == TRUE){
-    TRUE
-  } else {
-    FALSE
-  }
-}
