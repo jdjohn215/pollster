@@ -147,7 +147,7 @@ crosstab <- function(df, x, y, weight, remove = "", n = TRUE, pct_type = "row", 
     }
   }
 
-  # # test if date or number
+  # test if date or number
   factor.true.type <- what_is_this_factor(pull(d.output, {{x}}))
   if(factor.true.type == "date"){
     d.output %>%
