@@ -22,7 +22,6 @@
 #' @import tidyr
 #' @import labelled
 #' @import rlang
-#' @importFrom lubridate as_date
 #'
 #' @examples
 #' crosstab(df = illinois, x = voter, y = raceethnic, weight = weight)

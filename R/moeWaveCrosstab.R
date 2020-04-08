@@ -27,7 +27,6 @@
 #' @import tidyr
 #' @import labelled
 #' @import rlang
-#' @importFrom lubridate as_date
 #'
 #' @examples
 #' moe_wave_crosstab(df = illinois, x = year, y = maritalstatus, weight = weight)

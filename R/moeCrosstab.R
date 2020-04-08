@@ -24,7 +24,6 @@
 #' @import tidyr
 #' @import labelled
 #' @import rlang
-#' @importFrom lubridate as_date
 #'
 #' @examples
 #' moe_crosstab(df = illinois, x = voter, y = raceethnic, weight = weight)

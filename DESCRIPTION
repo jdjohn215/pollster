@@ -22,7 +22,6 @@ Imports:
    stringr (>= 1.0.0),
    tidyr (>= 1.0.0),
    labelled (>= 2.0.0),
-   lubridate,
    forcats,
    rlang  (>= 0.4.5)
 Suggests:
