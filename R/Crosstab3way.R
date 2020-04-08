@@ -104,13 +104,16 @@ crosstab_3way <- function(df, x, y, z,
     d.output <- select(d.output, -n)
   }
 
-  # test if date
-  is.it.a.date <- is_date(df %>% pull({{z}}))
-
-  if(is.it.a.date == TRUE){
+  # test if date or number
+  factor.true.type <- what_is_this_factor(pull(d.output, {{z}}))
+  if(factor.true.type == "date"){
     d.output %>%
       as_tibble() %>%
-      mutate({{z}} := lubridate::as_date({{z}}))
+      mutate({{z}} := as.Date({{z}}, tryFormats = c("%Y-%m-%d", "%Y/%m/%d","%d-%m-%Y","%m-%d-%Y")))
+  } else if(factor.true.type == "number"){
+    d.output %>%
+      as_tibble() %>%
+      mutate({{z}} := as.numeric(as.character({{z}})))
   } else{
     d.output %>%
       as_tibble()
