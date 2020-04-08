@@ -32,15 +32,3 @@ what_is_this_factor <- function(factorvector){
     "factor"
   }
 }
-
-# illinois
-#
-# output <- crosstab(illinois, year, sex, weight)
-#
-# if(what_is_this_factor(pull(output, year)) == "date"){
-#   output %>%
-#     mutate(year == as.Date(year, tryFormats = c("%Y-%m-%d", "%Y/%m/%d","%d-%m-%Y","%m-%d-%Y")))
-# } else if(what_is_this_factor(pull(output, year)) == "number"){
-#   output %>%
-#     mutate(year = as.numeric(as.character(year)))
-# }
