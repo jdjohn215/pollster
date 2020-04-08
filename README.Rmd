@@ -115,7 +115,6 @@ Three-way crosstabs are ideal for plotting time series graphs and/or faceted plo
 
 ```{r}
 crosstab_3way(df = illinois, x = sex, y = educ6, z = year, weight = weight, format = "long") %>%
-  mutate(year = as.numeric(as.character(year))) %>%
   ggplot(aes(year, pct, col = sex)) +
   geom_line() +
   facet_wrap(facets = vars(educ6))

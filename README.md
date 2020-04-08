@@ -133,18 +133,18 @@ time.
 ``` r
 crosstab_3way(df = illinois, x = educ6, y = maritalstatus, z = year, weight = weight)
 #> # A tibble: 72 x 6
-#>    educ6 year         n Married `Widow/divorced/Sep` `Never Married`
-#>    <fct> <fct>    <dbl>   <dbl>                <dbl>           <dbl>
-#>  1 LT HS 1996  1182402.    41.0                 28.8            30.2
-#>  2 LT HS 1998  1159148.    42.2                 33.6            24.2
-#>  3 LT HS 2000  1036154.    44.3                 32.6            23.1
-#>  4 LT HS 2002  1074704.    38.0                 30.4            31.6
-#>  5 LT HS 2004   936926.    41.0                 30.3            28.6
-#>  6 LT HS 2006   918858.    38.6                 31.7            29.7
-#>  7 LT HS 2008   909755.    42.1                 28.1            29.8
-#>  8 LT HS 2010   806647.    40.6                 24.6            34.7
-#>  9 LT HS 2012   705132.    35.7                 26.9            37.4
-#> 10 LT HS 2014   782926.    43.7                 23.7            32.7
+#>    educ6  year        n Married `Widow/divorced/Sep` `Never Married`
+#>    <fct> <dbl>    <dbl>   <dbl>                <dbl>           <dbl>
+#>  1 LT HS  1996 1182402.    41.0                 28.8            30.2
+#>  2 LT HS  1998 1159148.    42.2                 33.6            24.2
+#>  3 LT HS  2000 1036154.    44.3                 32.6            23.1
+#>  4 LT HS  2002 1074704.    38.0                 30.4            31.6
+#>  5 LT HS  2004  936926.    41.0                 30.3            28.6
+#>  6 LT HS  2006  918858.    38.6                 31.7            29.7
+#>  7 LT HS  2008  909755.    42.1                 28.1            29.8
+#>  8 LT HS  2010  806647.    40.6                 24.6            34.7
+#>  9 LT HS  2012  705132.    35.7                 26.9            37.4
+#> 10 LT HS  2014  782926.    43.7                 23.7            32.7
 #> # … with 62 more rows
 ```
 
@@ -193,7 +193,6 @@ plots.
 
 ``` r
 crosstab_3way(df = illinois, x = sex, y = educ6, z = year, weight = weight, format = "long") %>%
-  mutate(year = as.numeric(as.character(year))) %>%
   ggplot(aes(year, pct, col = sex)) +
   geom_line() +
   facet_wrap(facets = vars(educ6))
