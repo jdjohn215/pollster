@@ -1,3 +1,5 @@
+# pollster 0.1.1.9000
+
 # pollster 0.1.1
 
 * improvements to how crosstab functions conditionally convert factor to date class. This includes removing the lubridate dependency.
