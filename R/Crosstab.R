@@ -56,7 +56,7 @@ crosstab <- function(df, x, y, weight, remove = "", n = TRUE, pct_type = "row", 
     if(format == "wide"){
       d.output <- d.output %>%
         # Spread so x is rows and y is columns
-        pivot_wider(names_from = {{y}}, values_from = pct, values_fill = list(pct = 0)) %>%
+        spread(key = {{y}}, value = pct, fill = 0) %>%
         # move total row to end
         select(-one_of("n"), one_of("n")) %>%
         ungroup()
@@ -91,7 +91,7 @@ crosstab <- function(df, x, y, weight, remove = "", n = TRUE, pct_type = "row", 
       total.row <- d.output %>%
         group_by({{y}}, n) %>%
         summarise() %>%
-        pivot_wider(names_from = {{y}}, values_from = n, values_fill = list(pct = 0)) %>%
+        spread(key = {{y}}, value = n, fill = 0) %>%
         mutate({{x}} := "n")
 
       # spread the output table
@@ -99,7 +99,7 @@ crosstab <- function(df, x, y, weight, remove = "", n = TRUE, pct_type = "row", 
         # drop the n column
         select(-n) %>%
         # spread so x is rows and y is columns
-        pivot_wider(names_from = {{y}}, values_from = pct, values_fill = list(pct = 0))
+        spread(key = {{y}}, value = n, fill = 0)
 
       # if n = TRUE, then add then n row
       # this causes the response column to switch from factor to character
@@ -134,7 +134,7 @@ crosstab <- function(df, x, y, weight, remove = "", n = TRUE, pct_type = "row", 
     if(format == "wide"){
       d.output <- d.output %>%
         # Spread so x is rows and y is columns
-        pivot_wider(names_from = {{y}}, values_from = pct, values_fill = list(pct = 0)) %>%
+        spread(key = {{y}}, value = pct, fill = 0) %>%
         # move total row to end
         select(-one_of("n"), one_of("n")) %>%
         ungroup()
