@@ -4,7 +4,8 @@
 \name{illinois}
 \alias{illinois}
 \title{Illinois respondents to the Voting and Registration Supplement for the Current Population Survey}
-\format{A data frame with 36207 rows and 9 variables:
+\format{
+A data frame with 36207 rows and 9 variables:
 \describe{
   \item{year}{year of survey}
   \item{fips}{the state fips code}
@@ -16,7 +17,8 @@
   \item{voter}{indicates if the respondent voted, labelled values}
   \item{age}{the age of the respondent, numeric values}
   \item{weight}{the number of people each respondent is calculated to represent}
-}}
+}
+}
 \source{
 \url{https://www.census.gov/topics/public-sector/voting.html}
 }
