@@ -89,7 +89,8 @@ moe_crosstab <- function(df, x, y, weight, remove = c(""),
   # convert to wide format if required
   if(format == "wide"){
     d.output <- d.output %>%
-      pivot_wider(names_from = {{y}}, values_from = c(pct, moe), values_fill = list(pct = 0))
+      pivot_wider(names_from = {{y}}, values_from = c(pct, moe),
+                  values_fill = list(pct = 0), names_sort = TRUE)
   }
 
   # remove n if required
