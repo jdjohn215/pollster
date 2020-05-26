@@ -1,6 +1,6 @@
-# pollster 0.1.1.9000
+# pollster 0.1.2
 
-* due to new updates in tidyr ([discussed here](https://github.com/tidyverse/tidyr/issues/839)), `pivot_wider` no longer arranges columns according to their factor levels. The development version of tidyr contains a fix to this bug, but until then the pollster functions `crosstab` and `crosstab_3way` are reverting back to `tidyr::spread`. Because the functions `moe_crosstab` and `moe_crosstab_3way` work by passing two columns to the `values_from` argument (a feature unavailable in `spread`) they cannot be reverted. Thus in some cases `crosstab` and `moe_crosstab` may return tibbles with different column orders. This behavior will be fixed as soon as tidyr is updated.
+* pollster now depends on the most recent version of tidyr (1.1.0) because it uses the argument `names_sort = TRUE` to ensure that `tidyr::pivot_wider` arranges rows and columns in the order of their factor levels.
 
 # pollster 0.1.1
 
