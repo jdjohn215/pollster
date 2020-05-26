@@ -20,7 +20,7 @@ Depends:
 Imports:
    dplyr (>= 0.8.0),
    stringr (>= 1.0.0),
-   tidyr (>= 1.0.0),
+   tidyr (>= 1.1.0),
    labelled (>= 2.0.0),
    forcats,
    rlang  (>= 0.4.5)
