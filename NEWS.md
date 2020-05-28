@@ -1,3 +1,5 @@
+# pollster 0.1.2.9000
+
 # pollster 0.1.2
 
 * pollster now depends on the most recent version of tidyr (1.1.0) because it uses the argument `names_sort = TRUE` to ensure that `tidyr::pivot_wider` arranges rows and columns in the order of their factor levels.
