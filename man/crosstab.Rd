@@ -12,7 +12,8 @@ crosstab(
   remove = "",
   n = TRUE,
   pct_type = "row",
-  format = "wide"
+  format = "wide",
+  unwt_n = FALSE
 )
 }
 \arguments{
@@ -33,6 +34,8 @@ percentages, but in a separate row for wide format column percentages.}
 \item{pct_type}{Controls the kind of percentage values returned. One of "row," "cell," or "column."}
 
 \item{format}{one of "long" or "wide"}
+
+\item{unwt_n}{logical, if TRUE a column "unweighted_n" is included containing the unweighted frequency count. It is only available when pct_type = "row"}
 }
 \value{
 a tibble
