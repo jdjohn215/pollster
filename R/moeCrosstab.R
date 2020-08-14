@@ -16,6 +16,7 @@
 #' Column percents are not supported.
 #' @param format one of "long" or "wide"
 #' @param zscore defaults to 1.96, consistent with a 95\% confidence interval
+#' @param unwt_n logical, if TRUE it adds a column with unweighted frequency values
 #'
 #' @return a tibble
 #' @export
@@ -30,7 +31,8 @@
 #' moe_crosstab(df = illinois, x = voter, y = raceethnic, weight = weight, n = FALSE)
 
 moe_crosstab <- function(df, x, y, weight, remove = c(""),
-                         n = TRUE, pct_type = "row", format = "long", zscore = 1.96){
+                         n = TRUE, pct_type = "row", format = "long",
+                         zscore = 1.96, unwt_n = FALSE){
 
   # make sure the arguments are all correct
   stopifnot(pct_type %in% c("row", "cell"),
@@ -48,20 +50,21 @@ moe_crosstab <- function(df, x, y, weight, remove = c(""),
              {{y}} := to_factor({{y}})) %>%
       group_by({{x}}) %>%
       mutate(total = sum({{weight}}),
-             n = length({{weight}})) %>%
+             unweighted_n = length({{weight}})) %>%
       group_by({{x}}, {{y}}) %>%
       summarise(observations = sum({{weight}}),
                 pct = observations/first(total),
-                n = first(n)) %>%
+                n = first(total),
+                unweighted_n = first(unweighted_n)) %>%
       ungroup() %>%
-      mutate(moe = moedeff_calc(pct = pct, deff = deff, n = n, zscore = zscore)) %>%
+      mutate(moe = moedeff_calc(pct = pct, deff = deff, n = unweighted_n, zscore = zscore)) %>%
       mutate(pct = pct*100) %>%
       select(-observations) %>%
       # Remove values included in "remove" string
       filter(!str_to_upper({{x}}) %in% str_to_upper(remove),
              !str_to_upper({{y}}) %in% str_to_upper(remove)) %>%
       # move total row to end
-      select(-one_of("n"), one_of("n"))
+      select(-one_of("n", "unweighted_n"), one_of("n", "unweighted_n"))
   } else if(pct_type == "cell"){
     d.output <- df %>%
       filter(!is.na({{x}}),
@@ -70,32 +73,39 @@ moe_crosstab <- function(df, x, y, weight, remove = c(""),
              {{y}} := to_factor({{y}})) %>%
       # calculate denominator
       mutate(total = sum({{weight}}),
-             n = length({{weight}})) %>%
+             unweighted_n = length({{weight}})) %>%
       group_by({{x}}, {{y}}) %>%
       summarise(observations = sum({{weight}}),
                 pct = observations/first(total),
-                n = first(n)) %>%
+                n = first(total),
+                unweighted_n = first(unweighted_n)) %>%
       ungroup() %>%
-      mutate(moe = moedeff_calc(pct = pct, deff = deff, n = n, zscore = zscore)) %>%
+      mutate(moe = moedeff_calc(pct = pct, deff = deff, n = unweighted_n, zscore = zscore)) %>%
       mutate(pct = pct*100) %>%
       select(-observations) %>%
       # Remove values included in "remove" string
       filter(!str_to_upper({{x}}) %in% str_to_upper(remove),
              !str_to_upper({{y}}) %in% str_to_upper(remove)) %>%
       # move total row to end
-      select(-one_of("n"), one_of("n"))
+      select(-one_of("n", "unweighted_n"), one_of("n", "unweighted_n"))
   }
 
   # convert to wide format if required
   if(format == "wide"){
     d.output <- d.output %>%
       pivot_wider(names_from = {{y}}, values_from = c(pct, moe),
-                  values_fill = list(pct = 0), names_sort = TRUE)
+                  values_fill = list(pct = 0), names_sort = TRUE) %>%
+      select(-one_of("n", "unweighted_n"), one_of("n", "unweighted_n"))
   }
 
   # remove n if required
   if(n == FALSE){
     d.output <- select(d.output, -n)
+  }
+
+  # remove unweighted_n if required
+  if(unwt_n == FALSE){
+    d.output <- select(d.output, -unweighted_n)
   }
 
   # test if date or number
