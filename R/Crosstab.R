@@ -14,7 +14,7 @@
 #' percentages, but in a separate row for wide format column percentages.
 #' @param pct_type Controls the kind of percentage values returned. One of "row," "cell," or "column."
 #' @param format one of "long" or "wide"
-#' @param unwt_n logical, if TRUE a column "unweighted_n" is included containing the unweighted frequency count. It is only available when pct_type = "row"
+#' @param unwt_n logical, if TRUE a column "unweighted_n" is included containing the unweighted frequency count. It is not available when pct_type is "column"
 #'
 #' @return a tibble
 #' @export
@@ -136,11 +136,13 @@ crosstab <- function(df, x, y, weight, remove = "", n = TRUE,
       mutate({{x}} := to_factor({{x}}, sort_levels = "values"),
              {{y}} := to_factor({{y}}, sort_levels = "values")) %>%
       # Calculate denominator
-      mutate(total = sum({{weight}})) %>%
+      mutate(total = sum({{weight}}),
+             unweighted_n = n()) %>%
       # Calculate proportions
       group_by({{x}}, {{y}}) %>%
       summarise(pct = (sum({{weight}})/first(total))*100,
-                n = first(total)) %>%
+                n = first(total),
+                unweighted_n = first(unweighted_n)) %>%
       # Remove values included in "remove" string
       filter(!str_to_upper({{x}}) %in% str_to_upper(remove),
              !str_to_upper({{y}}) %in% str_to_upper(remove))
@@ -152,13 +154,18 @@ crosstab <- function(df, x, y, weight, remove = "", n = TRUE,
         pivot_wider(names_from = {{y}}, values_from = pct, values_fill = 0,
                     names_sort = TRUE) %>%
         # move total row to end
-        select(-one_of("n"), one_of("n")) %>%
+        select(-one_of("n", "unweighted_n"), one_of("n", "unweighted_n")) %>%
         ungroup()
     }
 
     # remove n column if n == FALSE
     if(n == FALSE){
       d.output <- select(d.output, -n)
+    }
+
+    # remove unweighted n column if unwt_n == FALSE
+    if(unwt_n == FALSE){
+      d.output <- select(d.output, -unweighted_n)
     }
   }
 

@@ -35,7 +35,7 @@ percentages, but in a separate row for wide format column percentages.}
 
 \item{format}{one of "long" or "wide"}
 
-\item{unwt_n}{logical, if TRUE a column "unweighted_n" is included containing the unweighted frequency count. It is only available when pct_type = "row"}
+\item{unwt_n}{logical, if TRUE a column "unweighted_n" is included containing the unweighted frequency count. It is not available when pct_type is "column"}
 }
 \value{
 a tibble
