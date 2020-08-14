@@ -13,7 +13,8 @@ moe_crosstab(
   n = TRUE,
   pct_type = "row",
   format = "long",
-  zscore = 1.96
+  zscore = 1.96,
+  unwt_n = FALSE
 )
 }
 \arguments{

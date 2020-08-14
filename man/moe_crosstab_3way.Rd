@@ -14,7 +14,8 @@ moe_crosstab_3way(
   n = TRUE,
   pct_type = "row",
   format = "long",
-  zscore = 1.96
+  zscore = 1.96,
+  unwt_n = FALSE
 )
 }
 \arguments{
@@ -38,6 +39,8 @@ This will not affect any calculations made. The vector is not case-sensitive.}
 \item{format}{one of "long" or "wide"}
 
 \item{zscore}{defaults to 1.96, consistent with a 95\% confidence interval}
+
+\item{unwt_n}{logical, if TRUE it adds a column with unweighted frequency values}
 }
 \value{
 a tibble
