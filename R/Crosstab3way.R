@@ -15,6 +15,7 @@
 #' @param n logical, if TRUE numeric totals are included.
 #' @param pct_type Controls the kind of percentage values returned. One of "row" or "cell."
 #' @param format one of "long" or "wide"
+#' @param unwt_n logical, if TRUE a column is added containing unweighted frequency counts
 #'
 #' @return a tibble
 #' @export
@@ -31,7 +32,8 @@
 
 crosstab_3way <- function(df, x, y, z,
                           weight, remove = c(""),
-                          n = TRUE, pct_type = "row", format = "wide"){
+                          n = TRUE, pct_type = "row", format = "wide",
+                          unwt_n = FALSE){
 
   # make sure the arguments are all correct
   stopifnot(pct_type %in% c("row", "cell"),
@@ -50,11 +52,13 @@ crosstab_3way <- function(df, x, y, z,
              {{z}} := to_factor({{z}}, sort_levels = "values")) %>%
       # Calculate denominator
       group_by({{x}}, {{z}}) %>%
-      mutate(total = sum({{weight}})) %>%
+      mutate(total = sum({{weight}}),
+             unweighted_n = n()) %>%
       # Calculate proportions
       group_by({{x}}, {{y}}, {{z}}) %>%
       summarise(pct = (sum({{weight}})/first(total))*100,
-                n = first(total)) %>%
+                n = first(total),
+                unweighted_n = first(unweighted_n)) %>%
       # Remove values included in "remove" string
       filter(!str_to_upper({{x}}) %in% str_to_upper(remove),
              !str_to_upper({{y}}) %in% str_to_upper(remove),
@@ -65,7 +69,8 @@ crosstab_3way <- function(df, x, y, z,
     if(str_to_lower(format) == "wide"){
       d.output <- d.output %>%
         pivot_wider(names_from = {{y}}, values_from = pct,
-                    values_fill = list(pct = 0), names_sort = TRUE)
+                    values_fill = list(pct = 0), names_sort = TRUE) %>%
+        select(-one_of("n", "unweighted_n"), one_of("n", "unweighted_n"))
     }
   } else if(pct_type == "cell"){
     d.output <- df %>%
@@ -79,11 +84,13 @@ crosstab_3way <- function(df, x, y, z,
              {{z}} := to_factor({{z}}, sort_levels = "values")) %>%
       # Calculate denominator
       group_by({{z}}) %>%
-      mutate(total = sum({{weight}})) %>%
+      mutate(total = sum({{weight}}),
+             unweighted_n = n()) %>%
       # Calculate proportions
       group_by({{x}}, {{y}}, {{z}}) %>%
       summarise(pct = (sum({{weight}})/first(total))*100,
-                n = first(total)) %>%
+                n = first(total),
+                unweighted_n = first(unweighted_n)) %>%
       # Remove values included in "remove" string
       filter(!str_to_upper({{x}}) %in% str_to_upper(remove),
              !str_to_upper({{y}}) %in% str_to_upper(remove),
@@ -94,13 +101,18 @@ crosstab_3way <- function(df, x, y, z,
     if(str_to_lower(format) == "wide"){
       d.output <- d.output %>%
         pivot_wider(names_from = {{y}}, values_from = pct,
-                    values_fill = list(pct = 0), names_sort = TRUE)
+                    values_fill = list(pct = 0), names_sort = TRUE) %>%
+        select(-one_of("n", "unweighted_n"), one_of("n", "unweighted_n"))
     }
   }
 
 
   if(n == FALSE){
     d.output <- select(d.output, -n)
+  }
+
+  if(unwt_n == FALSE){
+    d.output <- select(d.output, -unweighted_n)
   }
 
   # test if date or number
