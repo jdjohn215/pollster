@@ -1,3 +1,5 @@
+# pollster 0.1.3.9000
+
 # pollster 0.1.3
 * crosstab functions now include an option to include a column with unweighted frequencies. currently it is not available for column percents.
 * a bug is fixed that gave an error in `crosstab(..., pct_type = "col", format = "wide", n = FALSE)`
