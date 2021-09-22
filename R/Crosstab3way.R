@@ -70,7 +70,8 @@ crosstab_3way <- function(df, x, y, z,
       d.output <- d.output %>%
         pivot_wider(names_from = {{y}}, values_from = pct,
                     values_fill = list(pct = 0), names_sort = TRUE) %>%
-        select(-one_of("n", "unweighted_n"), one_of("n", "unweighted_n"))
+        select(-one_of("n", "unweighted_n"), one_of("n", "unweighted_n")) %>%
+        arrange({{x}}, {{z}})
     }
   } else if(pct_type == "cell"){
     d.output <- df %>%
@@ -102,7 +103,8 @@ crosstab_3way <- function(df, x, y, z,
       d.output <- d.output %>%
         pivot_wider(names_from = {{y}}, values_from = pct,
                     values_fill = list(pct = 0), names_sort = TRUE) %>%
-        select(-one_of("n", "unweighted_n"), one_of("n", "unweighted_n"))
+        select(-one_of("n", "unweighted_n"), one_of("n", "unweighted_n")) %>%
+        arrange({{x}}, {{z}})
     }
   }
 
