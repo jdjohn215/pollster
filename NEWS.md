@@ -1,4 +1,5 @@
 # pollster 0.1.3.9000
+* rows are explicitly rearranged by x and z in wide 3-way crosstabs
 
 # pollster 0.1.3
 * crosstab functions now include an option to include a column with unweighted frequencies. currently it is not available for column percents.
