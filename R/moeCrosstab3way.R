@@ -101,7 +101,8 @@ moe_crosstab_3way <- function(df, x, y, z,
     d.output <- d.output %>%
       pivot_wider(names_from = {{y}}, values_from = c(pct, moe),
                   values_fill = list(pct = 0, moe = 0)) %>%
-      select(-one_of("n", "unweighted_n"), one_of("n", "unweighted_n"))
+      select(-one_of("n", "unweighted_n"), one_of("n", "unweighted_n")) %>%
+      arrange({{x}}, {{z}})
   }
 
   # remove n if required
