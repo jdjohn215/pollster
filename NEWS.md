@@ -1,4 +1,4 @@
-# pollster 0.1.3.9000
+# pollster 0.1.4
 * rows are explicitly rearranged by x and z in wide 3-way crosstabs
 * weights of 0 are removed prior to calculation of the design effect
 * an error is now given in all table-creating functions if the weight variable includes NA values
