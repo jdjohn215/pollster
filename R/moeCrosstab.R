@@ -34,6 +34,12 @@ moe_crosstab <- function(df, x, y, weight, remove = c(""),
                          n = TRUE, pct_type = "row", format = "long",
                          zscore = 1.96, unwt_n = FALSE){
 
+  # make sure no weights are NA
+  w <- df %>% pull({{weight}})
+  if(length(w[is.na(w)]) > 0){
+    stop("The weight variable contains missing values.", call. = FALSE)
+  }
+
   # make sure the arguments are all correct
   stopifnot(pct_type %in% c("row", "cell"),
             format %in% c("wide", "long"))

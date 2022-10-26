@@ -50,6 +50,12 @@ wtd_mean <- function(df, variable, weight){
 #' summary_table(illinois, age, weight, name_style = "pretty")
 summary_table <- function(df, variable, weight, name_style = "clean"){
 
+  # make sure no weights are NA
+  w <- df %>% pull({{weight}})
+  if(length(w[is.na(w)]) > 0){
+    stop("The weight variable contains missing values.", call. = FALSE)
+  }
+
   stopifnot(name_style %in% c("clean", "pretty"))
 
   unweighted_observations <- df %>%

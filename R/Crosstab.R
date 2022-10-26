@@ -31,6 +31,12 @@
 crosstab <- function(df, x, y, weight, remove = "", n = TRUE,
                      pct_type = "row", format = "wide", unwt_n = FALSE){
 
+  # make sure no weights are NA
+  w <- df %>% pull({{weight}})
+  if(length(w[is.na(w)]) > 0){
+    stop("The weight variable contains missing values.", call. = FALSE)
+  }
+
   # make sure the arguments are all correct
   stopifnot(pct_type %in% c("row", "cell", "column", "col"),
             format %in% c("wide", "long"))

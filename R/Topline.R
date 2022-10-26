@@ -29,6 +29,13 @@
 
 topline <- function(df, variable, weight, remove = c(""), n = TRUE,
                     pct = TRUE, valid_pct = TRUE, cum_pct = TRUE){
+
+  # make sure no weights are NA
+  w <- df %>% pull({{weight}})
+  if(length(w[is.na(w)]) > 0){
+    stop("The weight variable contains missing values.", call. = FALSE)
+  }
+
   # Make table
   d.output <- df %>%
     # Convert to ordered factors
