@@ -1,5 +1,7 @@
 # pollster 0.1.3.9000
 * rows are explicitly rearranged by x and z in wide 3-way crosstabs
+* weights of 0 are removed prior to calculation of the design effect
+* an error is now given in all table-creating functions if the weight variable includes NA values
 
 # pollster 0.1.3
 * crosstab functions now include an option to include a column with unweighted frequencies. currently it is not available for column percents.
