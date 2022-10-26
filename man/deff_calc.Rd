@@ -18,7 +18,7 @@ A number
 \details{
 This function returns the design effect of a given sample using the formula
  length(w)*sum(w^2)/(sum(w)^2).
- It is designed for use in the moe family of functions.
+ It is designed for use in the moe family of functions. If any weights are equal to 0, they are removed prior to calculation.
 }
 \examples{
 deff_calc(illinois$weight)

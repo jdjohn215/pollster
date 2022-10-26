@@ -4,7 +4,7 @@
 #'
 #'  This function returns the design effect of a given sample using the formula
 #'  length(w)*sum(w^2)/(sum(w)^2).
-#'  It is designed for use in the moe family of functions.
+#'  It is designed for use in the moe family of functions. If any weights are equal to 0, they are removed prior to calculation.
 #'
 #' @param w a vector of weights
 #'
@@ -15,6 +15,13 @@
 #' deff_calc(illinois$weight)
 #'
 deff_calc <- function(w){
+  # check for weights of 0
+  if(length(w[w == 0]) > 0){
+    message("Your data includes weights equal to zero. These are removed before calculating the design effect.")
+    # remove any weights that are 0
+    w <- w[w > 0]
+  }
+
   length(w)*sum(w^2)/(sum(w)^2)
 }
 
