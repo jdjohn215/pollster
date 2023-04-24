@@ -1,3 +1,7 @@
+# pollster 0.1.5
+* replace deprecated `forcats::fct_explicit_na` with `forcats::fct_na_value_to_level`
+* require at least forcats v1.0.0
+
 # pollster 0.1.4
 * rows are explicitly rearranged by x and z in wide 3-way crosstabs
 * weights of 0 are removed prior to calculation of the design effect
