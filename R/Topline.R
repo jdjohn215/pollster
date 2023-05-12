@@ -40,7 +40,8 @@ topline <- function(df, variable, weight, remove = c(""), n = TRUE,
   d.output <- df %>%
     # Convert to ordered factors
     mutate({{variable}} := to_factor({{variable}}, sort_levels = "values"),
-           {{variable}} := forcats::fct_na_value_to_level({{variable}})) %>%
+           {{variable}} := forcats::fct_na_value_to_level({{variable}},
+                                                          level = "(Missing)")) %>%
     # Calculate denominator
     mutate(total = sum({{weight}}),
            valid.total = sum(({{weight}})[{{variable}} != "(Missing)"])) %>%
