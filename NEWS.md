@@ -1,3 +1,6 @@
+# pollster 0.1.6
+* fix bug which lead to explicitly missing factor levels still being included in the "valid percent" column.
+
 # pollster 0.1.5
 * replace deprecated `forcats::fct_explicit_na` with `forcats::fct_na_value_to_level`
 * require at least forcats v1.0.0
