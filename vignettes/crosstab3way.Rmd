@@ -48,7 +48,7 @@ illinois %>%
   ggplot(aes(educ6, pct, fill = maritalstatus)) +
   geom_bar(stat = "identity", position = position_dodge()) +
   facet_wrap(facets = vars(sex)) +
-  labs("Educational attainment by sex and marital status",
+  labs(title = "Educational attainment by sex and marital status",
        subtitle = "Illinois residents ages 40+") +
   theme(legend.position = "top")
 ```
