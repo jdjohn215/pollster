@@ -1,5 +1,6 @@
 # pollster 0.1.7
 * fixed cran issues so it can be resubmitted
+* add `na.rm` option to `wtd_mean()`
 
 # pollster 0.1.6
 * fix bug which lead to explicitly missing factor levels still being included in the "valid percent" column.
