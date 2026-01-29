@@ -18,9 +18,9 @@
 #'
 #' library(dplyr)
 #' illinois %>% wtd_mean(age, weight)
-wtd_mean <- function(df, variable, weight){
+wtd_mean <- function(df, variable, weight, na.rm = TRUE){
   df %>%
-    summarise(mean = weighted.mean(x = {{variable}}, w = {{weight}})) %>%
+    summarise(mean = weighted.mean(x = {{variable}}, w = {{weight}}, na.rm = na.rm)) %>%
     pull()
 }
 
