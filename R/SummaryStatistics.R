@@ -6,6 +6,7 @@
 #' @param df The data source
 #' @param variable the variable, it should be numeric
 #' @param weight The weighting variable
+#' @param na.rm Remove NA values or not, defaults to TRUE
 #'
 #' @return a numeric value
 #' @export

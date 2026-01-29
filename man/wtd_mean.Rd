@@ -4,7 +4,7 @@
 \alias{wtd_mean}
 \title{weighted mean}
 \usage{
-wtd_mean(df, variable, weight)
+wtd_mean(df, variable, weight, na.rm = TRUE)
 }
 \arguments{
 \item{df}{The data source}
@@ -12,6 +12,8 @@ wtd_mean(df, variable, weight)
 \item{variable}{the variable, it should be numeric}
 
 \item{weight}{The weighting variable}
+
+\item{na.rm}{Remove NA values or not, defaults to TRUE}
 }
 \value{
 a numeric value
