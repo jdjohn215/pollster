@@ -79,7 +79,7 @@ A wide format table looks like this.
 moe_crosstab(illinois, educ6, voter, weight, format = "wide")
 ```
 
-`ggplot2` offers [multiple ways](http://www.sthda.com/english/wiki/ggplot2-error-bars-quick-start-guide-r-software-and-data-visualization) to visualize the margin of error. Here is one good option. (Please note, if you don't have ggplot2 >= [3.3.0](https://www.tidyverse.org/blog/2020/03/ggplot2-3-3-0/) you'll get an error message.)
+`ggplot2` offers multiple ways to visualize the margin of error. Here is one good option.
 
 ```{r, fig.width=5}
 illinois %>%
